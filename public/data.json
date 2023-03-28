@@ -1,0 +1,38 @@
+{
+  "0": {
+    "id": 1213,
+    "name": "средство для мытья посуды Crystal",
+    "productImageUrl": "./src/assets/product1.png",
+    "price": 48.76,
+    "size": "450 мл",
+    "isBottle": true,
+    "types": [],
+    "barCode": 4604049097548,
+    "manufacturer": "Нэфис",
+    "brand": "AOS"
+  },
+  "1": {
+    "id": 1214,
+    "name": "Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
+    "productImageUrl": "product2",
+    "price": 48.76,
+    "size": "15X28.8 г",
+    "isBottle": false,
+    "types": [],
+    "barCode": 4604049097548,
+    "manufacturer": "Нэфис",
+    "brand": "AOS"
+  },
+  "2": {
+    "id": 1215,
+    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
+    "productImageUrl": "product3",
+    "price": 48.76,
+    "size": "1500 г",
+    "types": [],
+    "isBottle": false,
+    "barCode": 4604049097548,
+    "manufacturer": "Нэфис",
+    "brand": "AOS"
+  }
+}

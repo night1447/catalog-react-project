@@ -1,0 +1,23 @@
+.btn {
+    background-color: var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 79px;
+    padding: 21px 44px;
+    color: var(--white);
+}
+
+.image {
+    position: relative;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-position: center center;
+    background-size: cover;
+    margin-left: 12px;
+}
+
+.rounded {
+    border-radius: 50%;
+}
