@@ -1,0 +1,106 @@
+@import "../../settings";
+
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--black);
+  margin-bottom: 15px;
+
+  &_tt {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+
+.subtitle {
+  font-weight: 300;
+  margin-bottom: 16px;
+
+  &_value {
+    font-weight: 500;
+  }
+}
+
+.block {
+  &_border {
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(63, 78, 101, 0.3);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.show {
+  margin-right: 10px;
+  padding-right: 51px;
+  padding-left: 51px;
+}
+
+.type {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--black);
+
+  &.active {
+    color: var(--light-blue);
+  }
+
+  &-button {
+    transition: 0.5s color;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.blocks {
+  @include adpt(868) {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s;
+  }
+}
+
+.blocks.active {
+  @include adpt(868) {
+    height: 100%;
+  }
+}
+
+.aside {
+  position: relative;
+}
+
+.filter-show {
+  display: none;
+  position: absolute;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  background-color: var(--light-accent);
+  right: 0;
+  top: -10px;
+  transition: 0.5s transform;
+  transform: rotate(180deg);
+
+  &.active {
+    transform: rotate(0deg);
+  }
+
+  &_image {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  @include adpt($bmob-r){
+    display: block;
+  }
+}

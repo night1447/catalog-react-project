@@ -1,0 +1,35 @@
+.checked {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border: 0.5px solid var(--blue);
+  border-radius: 1px;
+  margin-right: 10px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 7px;
+    height: 7px;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    background-color: var(--blue);
+    transition: opacity 0.5s;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input{
+  opacity: 0;
+}
+.input:checked ~ .checked {
+  &::before {
+    opacity: 1;
+  }
+}

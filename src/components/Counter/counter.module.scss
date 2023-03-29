@@ -1,0 +1,45 @@
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+  border-radius: 20px;
+  width: 100px;
+  font-weight: 300;
+  font-size: 12px;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.label {
+  flex-basis: 50%;
+
+  &:not(:last-child) {
+    position: relative;
+    margin-right: 27px;
+
+    &::after {
+      position: absolute;
+      content: "-";
+      font-size: 14px;
+      right: -15px;
+      width: 7px;
+      top: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
+}

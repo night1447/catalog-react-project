@@ -1,0 +1,66 @@
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  padding: 17px 21px;
+  background-color: var(--beige);
+  width: 100px;
+  height: 45px;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.7;
+  transition: 0.5s opacity;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.button.active {
+  opacity: 1;
+}
+
+.element {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 37px;
+  transition: opacity 0.5s, width 0.5s, height 0.5s, transform 0.5s;
+  z-index: 0;
+  opacity: 0;
+  animation: opacityAnimation 1.2s forwards;
+  border-radius: 30px;
+  background-color: var(--white);
+}
+
+@keyframes opacityAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

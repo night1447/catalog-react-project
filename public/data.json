@@ -1,38 +1,82 @@
-{
-  "0": {
+[
+  {
     "id": 1213,
     "name": "средство для мытья посуды Crystal",
-    "productImageUrl": "./src/assets/product1.png",
-    "price": 48.76,
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_46a_4811457045881.webp",
+    "price": 8.76,
     "size": "450 мл",
-    "isBottle": true,
-    "types": [],
+    "typeSize": "volume",
+    "types": ["Уход за телом", "Уход за руками"],
     "barCode": 4604049097548,
     "manufacturer": "Нэфис",
     "brand": "AOS"
   },
-  "1": {
+  {
     "id": 1214,
     "name": "Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
-    "productImageUrl": "product2",
-    "price": 48.76,
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_dcb_4814073000586.webp",
+    "price": 123.76,
     "size": "15X28.8 г",
-    "isBottle": false,
-    "types": [],
+    "typeSize": "weight",
+    "types": ["Средства для бритья"],
     "barCode": 4604049097548,
-    "manufacturer": "Нэфис",
+    "manufacturer": "Aura",
     "brand": "AOS"
   },
-  "2": {
+  {
     "id": 1215,
     "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-    "productImageUrl": "product3",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
+    "price": 2.76,
+    "size": "1500 г",
+    "types": ["Уход за телом"],
+    "typeSize": "volume",
+    "barCode": 4604049097548,
+    "manufacturer": "Детский мир",
+    "brand": "AOS"
+  },{
+    "id": 1216,
+    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
+    "price": 3.76,
+    "size": "1500 г",
+    "types": ["Уход за ногами"],
+    "typeSize": "weight",
+    "barCode": 4604049097548,
+    "manufacturer": "Xiaomi",
+    "brand": "AOS"
+  },{
+    "id": 1217,
+    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
+    "price": 5.76,
+    "size": "1500 г",
+    "types": ["Уход за телом"],
+    "typeSize": "weight",
+    "barCode": 4604049097548,
+    "manufacturer": "Nestle",
+    "brand": "AOS"
+  },{
+    "id": 1218,
+    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
+    "price": 83.76,
+    "size": "1500 г",
+    "types": ["Уход за телом"],
+    "typeSize": "weight",
+    "barCode": 4604049097548,
+    "manufacturer": "Apple",
+    "brand": "AOS"
+  },{
+    "id": 1219,
+    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
     "price": 48.76,
     "size": "1500 г",
-    "types": [],
-    "isBottle": false,
+    "types": ["Уход за телом"],
+    "typeSize": "weight",
     "barCode": 4604049097548,
-    "manufacturer": "Нэфис",
+    "manufacturer": "GeekVape",
     "brand": "AOS"
   }
-}
+]

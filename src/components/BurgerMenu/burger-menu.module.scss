@@ -1,0 +1,122 @@
+@import "../../settings";
+
+.header-mobile {
+  display: none;
+  @include adpt(868) {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 200%;
+  z-index: 10;
+  background-color: rgba(17, 17, 17, 0.5);
+  transition: opacity 0.8s, visibility 0.8s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.mobile-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.prices {
+  width: 100%;
+}
+
+.wrapper {
+  background-color: var(--white);
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100% - 50vh);
+  padding: 20px 16px 32px;
+}
+
+.mb {
+  margin-bottom: 22px;
+}
+
+.nav {
+  display: block !important;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  transition: 0.5s background-color;
+
+  &:hover {
+    background-color: var(--light-blue);
+  }
+
+  & span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--white);
+    transition: opacity 0.5s, transform 0.5s;
+
+    &:not(:last-child) {
+      margin-bottom: 3px;
+    }
+
+    @include adpt($bmob-r) {
+      width: 10px;
+      height: 2px;
+      border-radius: 0;
+      &:not(:last-child) {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  &.active {
+    & span {
+      &:nth-child(2) {
+        transform: translate(0px, 6px) rotate(45deg);
+
+      }
+
+      &:nth-child(3) {
+        opacity: 0;
+      }
+
+      &:nth-child(4) {
+        transform: translate(0px, -6px) rotate(-45deg);
+      }
+
+      @include adpt($bmob-r) {
+        &:nth-child(2) {
+          transform: translate(0px, 4px) rotate(45deg);
+        }
+        &:nth-child(4) {
+          transform: translate(0px, -4px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @include adpt($bmob-r) {
+    width: 32px;
+    height: 32px;
+  }
+}

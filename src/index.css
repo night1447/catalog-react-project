@@ -1,9 +1,17 @@
-$accent: #FFC85E;
-$black: #111111;
-$blue: #3F4E65;
-$green: #1FD85D;
-$light-blue: #40B3E0;
-$red: #D81F1F;
-$light-blue_card: #6DAEEA;
-$violet_card: #D06EFE;
-$turquoise_card: #1FD8CD;
+:root {
+    --accent: #FFC85E;
+    --light-accent: #ffe4ab;
+    --black: #111111;
+    --light-gray: #EDEDED;
+    --blue_1: #5C6370;
+    --blue: #3F4E65;
+    --green: #1FD85D;
+    --light-blue: #40B3E0;
+    --red: #D81F1F;
+    --light-blue_card: #6DAEEA;
+    --violet_card: #D06EFE;
+    --turquoise_card: #1FD8CD;
+    --white: #ffffff;
+    --beige: rgba(188, 166, 122,0.2);
+}
+

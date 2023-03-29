@@ -1,3 +1,3 @@
 export interface LayoutPayload{
-    layout: string
+    layout: 'grid' | 'row'
 }

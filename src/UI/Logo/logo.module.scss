@@ -1,0 +1,21 @@
+@import "../../settings";
+
+.logo {
+  width: 156px;
+  height: 66px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  @include adpt($mtab-r) {
+    width: 130px;
+    height: 50px;
+  }
+  @include adpt($stab-r) {
+    width: 110px;
+    height: 45px;
+  }
+  @include adpt($bmob-r) {
+    width: 97px;
+    height: 41px;
+  }
+}

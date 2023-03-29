@@ -1,0 +1,27 @@
+.input {
+  &[type='text'] {
+    padding: 20px;
+    border-radius: 36px;
+    width: 100%;
+    background-color: var(--light-gray);
+    color: var(--black);
+
+    &::placeholder {
+      font-size: 12px;
+      color: var(--blue_1);
+    }
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+
+  &[type='checkbox'] {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+  }
+}

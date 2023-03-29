@@ -1,0 +1,60 @@
+@import "../../settings";
+
+.trash {
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+  @include adpt(868) {
+    display: none;
+  }
+}
+
+.total {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.img {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 20px;
+  @include adpt(868) {
+    margin-right: 0;
+  }
+  @include adpt($bmob-r) {
+    width: 20px;
+    height: 15px;
+  }
+}
+
+.count {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  min-height: 22px;
+  font-weight: 700;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  color: var(--white);
+  background-color: var(--accent);
+  @include adpt($bmob-r) {
+    font-size: 10px;
+    min-width: 17px;
+    min-height: 17px;
+    top: -6px;
+  }
+}

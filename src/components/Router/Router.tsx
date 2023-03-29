@@ -1,20 +1,17 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import React from "react";
-import App from "../../App";
+import React, {FC, Suspense} from "react";
+import {Routing} from "./routing";
+import {Route, Routes} from "react-router-dom";
 
-const router = createBrowserRouter([
-    {
-        path: "/hello",
-        element: <div>Hello world!</div>,
-    },
-    {
-        path: '/',
-        element: <Main/>,
-        errorElement: <div> Error</div>,
-    },
-]);
-export const Router = () => {
+export const Router: FC = () => {
     return (
-        <RouterProvider router={router}/>
+        <Suspense>
+            <Routes>
+                {Routing.map(route =>
+                    <Route
+                        path={route.path}
+                        element={route.element}
+                        key={route.path}/>)}
+            </Routes>
+        </Suspense>
     );
 };

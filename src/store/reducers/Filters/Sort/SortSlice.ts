@@ -11,6 +11,7 @@ export const SortSlice = createSlice({
     reducers: {
         setOption(state, action: PayloadAction<SortPayload>) {
             state = action.payload;
+            return state;
         }
     }
 })

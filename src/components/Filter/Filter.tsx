@@ -1,0 +1,168 @@
+import styles from "./filter.module.scss";
+import {Counter} from "../Counter/Counter";
+import React, {useEffect, useReducer, useState} from "react";
+import {Button} from "../../UI/Button/Button";
+import trashImage from '../../assets/trashcan.svg';
+import arrowUpImage from '../../assets/arrow-up-black.svg';
+import {ICatalogProduct} from "../../models/ICatalogProduct";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {FilterBlock} from "./FilterBlock/FilterBlock";
+import {useDispatch} from "react-redux";
+import {
+    resetFilters,
+    setManufacturerAction,
+    setMaxValueCounterAction,
+    setMinValueCounterAction
+} from "../../store/reducers/Filters/Filter/FilterAction";
+import {
+    addProductAction,
+    removeProductAction,
+    resetTypesProducts
+} from "../../store/reducers/Filters/TypesProduct/typesProductAction";
+import {checkboxType} from "./FilterTypes";
+import {COUNT_PER_VIEW_MANUFACTURERS, initialState, settingsFilterState} from "./FilterVariables";
+import {settingFiltersReducer} from "./FilterReducer";
+
+const getAllManufacturers = (products: ICatalogProduct[]): checkboxType[] => {
+    const map: Map<string, number> = new Map();
+    products.forEach(product => {
+        let count = map.get(product.manufacturer);
+        map.set(product.manufacturer, count ? count + 1 : 1);
+    })
+    const massive: checkboxType[] = [];
+    map.forEach((value, key, map) => {
+        massive.push({
+            count: value || 0,
+            title: key,
+        })
+    })
+    return massive;
+};
+const getFilteredManufactures = (manufacturers: checkboxType[], value: string) => {
+    return manufacturers.filter(manufacturer => manufacturer.title.toLowerCase().trim().includes(value.toLowerCase().trim()))
+}
+const getMinValue = (products: ICatalogProduct[]): number => {
+    const min = Math.min(...products.map(product => product.price));
+    if (!Number.isFinite(min)) {
+        return 0
+    }
+    return min;
+};
+const getMaxValue = (products: ICatalogProduct[]): number => {
+    const max = Math.max(...products.map(product => product.price));
+    if (!Number.isFinite(max)) {
+        return 0
+    }
+    return max;
+}
+
+interface FilterProps {
+    class?: string,
+}
+
+const Filter = (props: FilterProps) => {
+    const [manufacturers, setManufacturers] = useState(initialState);
+    const [isShow, setIsShow] = useState(true);
+    const [settingFilters, settingFiltersDispatch] = useReducer(settingFiltersReducer, settingsFilterState);
+    const products = useTypedSelector(state => state.productReducer.products);
+    const types = useTypedSelector(state => state.typesProductReducer.typesProduct);
+    const selectTypes = useTypedSelector(state => state.typesProductReducer.selectedTypesProduct);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const massive = getAllManufacturers(products);
+        setManufacturers((prevState) => ({
+            manufacturers: massive,
+            filteredManufacturers: massive
+        }))
+        settingFiltersDispatch({type: "SET_MIN_VALUE", payload: getMinValue(products)});
+        settingFiltersDispatch({type: "SET_MAX_VALUE", payload: getMaxValue(products)});
+    }, [products]);
+
+    const searchHandler = (value: string) => {
+        setManufacturers((prevState) => ({
+            ...prevState,
+            filteredManufacturers: getFilteredManufactures(prevState.manufacturers, value)
+        }))
+    };
+    const useFilterHandler = () => {
+        dispatch(setManufacturerAction(settingFilters.manufacturers));
+        dispatch(setMinValueCounterAction(settingFilters.price.min));
+        dispatch(setMaxValueCounterAction(settingFilters.price.max));
+    };
+    const toggleManufacturerHandler = (value: string) => {
+        if (settingFilters.manufacturers.includes(value)) {
+            settingFiltersDispatch({type: 'REMOVE_MANUFACTURER', payload: value});
+        } else {
+            settingFiltersDispatch({type: 'ADD_MANUFACTURER', payload: value})
+        }
+    };
+    const setMinValueHandler = (value: number) => {
+        settingFiltersDispatch({type: 'SET_MIN_VALUE', payload: value});
+    }
+    const setMaxValueHandler = (value: number) => {
+        settingFiltersDispatch({type: 'SET_MAX_VALUE', payload: value});
+    }
+
+    const clearFilterHandler = () => {
+        dispatch(resetTypesProducts());
+        dispatch(resetFilters());
+        settingFiltersDispatch({type: 'RESET', payload: null});
+    };
+
+    const addTypeHandler = (value: string) => {
+        if (selectTypes.includes(value)) {
+            dispatch(removeProductAction(value));
+        } else {
+            dispatch(addProductAction(value));
+        }
+    };
+
+    return (
+        <aside className={`${styles.aside} ${props.class || ''}`}>
+            <h3 className={`${styles.title} ${styles.title_tt}`}>
+                ПОДБОР ПО ПАРАМЕТРАМ
+            </h3>
+            <Button isRounded={true} class={`${styles['filter-show']} ${isShow && styles['active']}`}
+                    imageClass={styles['filter-show_image']}
+                    onClick={() => setIsShow(prevState => !prevState)}
+                    urlImage={arrowUpImage}/>
+            <div className={`${styles.blocks} ${isShow ? styles.active : ''}`}>
+                <div className={styles.block}>
+                    <h4 className={styles.subtitle}>Цена <span className={styles.subtitle_value}>₸</span></h4>
+                    <Counter min={getMinValue(products)}
+                             max={getMaxValue(products)}
+                             setMin={setMinValueHandler}
+                             setMax={setMaxValueHandler}
+                    />
+                </div>
+                <div className={`${styles.block} ${styles.block_border}`}>
+                    <h3 className={`${styles.title}`}>
+                        Производитель
+                    </h3>
+                    <FilterBlock list={manufacturers.filteredManufacturers}
+                                 onSearch={(value) => searchHandler(value)}
+                                 onChangeState={toggleManufacturerHandler}
+                                 state={settingFilters.manufacturers}
+                                 countPerView={COUNT_PER_VIEW_MANUFACTURERS}/>
+                </div>
+                <div className={styles.actions}>
+                    <Button isRounded={false} title={'Показать'} onClick={useFilterHandler} class={styles.show}/>
+                    <Button isRounded={true} onClick={clearFilterHandler} urlImage={trashImage}/>
+                </div>
+                <ul>
+                    {types.map((item) => <li
+                        className={`${styles.block} ${styles.block_border} ${styles.type} ${selectTypes.includes(item) && styles.active}`}
+                        key={item}>
+                        <button type={"button"} className={`${styles['type-button']}`}
+                                onClick={() => addTypeHandler(item)}>
+                            {item}
+                        </button>
+                    </li>)}
+                </ul>
+            </div>
+        </aside>
+    );
+};
+export default Filter;

@@ -1,12 +1,24 @@
 import React from "react";
-import {Main} from "../Main/Main";
 import {Error} from "../../UI/Error/Error"
-import { RouteObject } from "react-router-dom";
+import {RouteObject} from "react-router-dom";
+import {CatalogPage} from "../../pages/CatalogPage/CatalogPage";
+import {MainPage} from "../../pages/MainPage/MainPage";
 
 export const Routing: RouteObject[] = [
     {
-        element: <Main/>,
+        element: <CatalogPage/>,
+        path: '/catalog',
+    },
+    {
+        element: <CatalogPage/>,
+        path: '/product/:id',
+    },
+    {
+        element: <MainPage/>,
         path: '/',
-        errorElement: <Error>,
+    }
+    , {
+        element: <Error/>,
+        path: '*',
     }
 ]

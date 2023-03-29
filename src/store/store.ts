@@ -1,11 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {rootReducer} from "./reducers/rootReducer";
+import {rootReducer} from "./reducers/index";
 
-export const sortStore = () => {
+export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
     })
 }
 
-export type filterStoreType = ReturnType<typeof sortStore>;
+export type filterStoreType = ReturnType<typeof setupStore>;
 export type typeSortDispatch = filterStoreType['dispatch'];

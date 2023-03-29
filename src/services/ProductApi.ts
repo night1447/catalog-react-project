@@ -2,10 +2,11 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query";
 import {ICatalogProduct} from "../models/ICatalogProduct";
 
 
-export const ProductService = createApi({
-    reducerPath: 'dataAPI',
-    baseQuery: fetchBaseQuery({baseUrl: './data.json'}),
-    tagTypes: ['dataAPI'],
+const defaultPath = './data.json';
+export const productApi = createApi({
+    reducerPath: 'productApi',
+    baseQuery: fetchBaseQuery({baseUrl: defaultPath}),
+    tagTypes: ['Product'],
     endpoints: build => ({
         fetchAllProducts: build.query<ICatalogProduct[], number>({
             query: (limit: number = 9) => ({
@@ -14,30 +15,30 @@ export const ProductService = createApi({
                     _limit: limit
                 }
             }),
-            providesTags: result => ["dataAPI"]
+            providesTags: result => ["Product"]
         }),
         createProduct: build.mutation<ICatalogProduct, ICatalogProduct>({
-            query: (post: ICatalogProduct) => ({
+            query: (product: ICatalogProduct) => ({
                 url: "",
                 method: 'POST',
-                body: post
+                body: product
             }),
-            invalidatesTags: result => ['dataAPI']
+            invalidatesTags: result => ['Product']
         }),
         updateProduct: build.mutation<ICatalogProduct, ICatalogProduct>({
-            query: (post: ICatalogProduct) => ({
-                url: `/posts/${post.id}`,
+            query: (product: ICatalogProduct) => ({
+                url: `${product.id}`,
                 method: 'PUT',
-                body: post
+                body: product
             }),
-            invalidatesTags: result => ['dataAPI']
+            invalidatesTags: result => ['Product']
         }),
         deleteProduct: build.mutation<ICatalogProduct, ICatalogProduct>({
-            query: (post: ICatalogProduct) => ({
-                url: `/posts/${post.id}`,
+            query: (product: ICatalogProduct) => ({
+                url: `/${product.id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: result => ['dataAPI']
+            invalidatesTags: result => ['Product']
         }),
     })
 });

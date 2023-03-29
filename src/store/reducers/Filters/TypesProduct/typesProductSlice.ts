@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IProduct, IState} from "./typesProductTypes";
+import {IState} from "./typesProductTypes";
 
 
 const initialState: IState = {
@@ -14,11 +14,14 @@ export const typesProductSlice = createSlice({
         setAllTypesProduct(state, action: PayloadAction<string[]>) {
             state.typesProduct = action.payload;
         },
-        addTypeProduct(state, action: PayloadAction<IProduct>) {
+        addTypeProduct(state, action: PayloadAction<string>) {
             state.selectedTypesProduct.push(action.payload);
         },
-        removeTypeProduct(state, action: PayloadAction<number>) {
-            state.selectedTypesProduct = state.selectedTypesProduct.filter(item => item.id !== action.payload);
+        removeTypeProduct(state, action: PayloadAction<string>) {
+            state.selectedTypesProduct = state.selectedTypesProduct.filter(item => item !== action.payload);
+        },
+        resetTypesProducts(state) {
+            state.selectedTypesProduct = initialState.selectedTypesProduct;
         }
     }
 })

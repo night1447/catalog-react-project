@@ -1,0 +1,32 @@
+@import "../../settings";
+
+.nav {
+  @include adpt(868){
+    display: none;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  @include adpt(868) {
+    align-items: unset;
+    flex-direction: column;
+  }
+}
+
+.item {
+  transition: 0.3s color;
+
+  &:not(:last-child) {
+    margin-right: 60px;
+    @include adpt(868) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  &:hover {
+    color: var(--accent);
+  }
+}

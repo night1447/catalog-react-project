@@ -1,0 +1,31 @@
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  max-width: 110px;
+
+  &:not(:last-child) {
+    margin-right: 11px;
+  }
+}
+
+.button {
+  display: block;
+  padding: 18px 16px;
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.15);
+  transition: transform 0.5s, color 0.5s, background-color 0.5s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.active {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+}

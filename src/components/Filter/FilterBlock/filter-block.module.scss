@@ -1,0 +1,48 @@
+.search {
+  margin-bottom: 15px;
+}
+
+.checkbox {
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  animation: opacityAnimation 1s forwards;
+}
+
+.show {
+  position: relative;
+  margin-top: 15px;
+  padding-right: 12px;
+  transition: color 0.5s;
+
+  &:hover {
+    color: var(--black);
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: transform 0.7s;
+
+  &-top {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+@keyframes opacityAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

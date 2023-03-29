@@ -1,0 +1,27 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.item {
+  margin-bottom: 10px;
+  min-height: 17px;
+  &:not(:last-child) {
+    position: relative;
+    margin-right: 20px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 100%;
+      opacity: 0.3;
+      border: 1px dashed var(--blue);
+    }
+  }
+}
