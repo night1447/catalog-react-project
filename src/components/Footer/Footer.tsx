@@ -48,7 +48,6 @@ export const Footer = () => {
                             Компания «Султан» — снабжаем розничные магазины товарами
                             "под ключ" в Кокчетаве и Акмолинской области
                         </p>
-								<Link to={routes.ADMIN} className={styles.breadcrumbs}> Админка</Link>
                         <p className={styles.breadcrumbs}>Подпишись на скидки и акции</p>
                         <EmailSender htmlFor={'footer-email-sender'}/>
                     </li>
