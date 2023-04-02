@@ -13,8 +13,10 @@ export const HeaderTop = () => {
                 <div className={`${styles.grid || ''} ${styles.flex}`}>
                     <Contacts class={styles['mobile-hidden']}/>
                     <Navigation/>
-                    <Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Каталог'} urlImage={catalogImage}/>
-                    <Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Поиск'} urlImage={searchImage}/>
+                    <Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Каталог'}
+                            urlImage={catalogImage}/>
+                    <Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Поиск'}
+                            urlImage={searchImage}/>
                 </div>
             </Container>
         </div>

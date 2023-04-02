@@ -38,17 +38,17 @@ export const Counter = (props: CounterProps) => {
 
     return (
         <Label htmlFor={'counter-value'} class={`${props.className || ''} ${styles.label}`}>
-            <button type={"button"} onClick={removeValueHandler} disabled={!props.disabled}
+            <button type={"button"} onClick={removeValueHandler} disabled={props.disabled||false}
                     className={styles.button}>-
             </button>
             <input type={'text'}
-                   disabled={!props.disabled}
+                   disabled={props.disabled||false}
                    onBlur={blurHandler}
                    onInput={replaceValueHandler}
                    className={styles.input}
                    value={props.count} min={1}
                    id={'counter-value'}/>
-            <button type={"button"} onClick={AddValueHandler} disabled={!props.disabled}
+            <button type={"button"} onClick={AddValueHandler} disabled={props.disabled||false}
                     className={styles.button}>+
             </button>
         </Label>

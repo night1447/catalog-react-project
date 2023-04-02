@@ -9,6 +9,9 @@ import {TextSearch} from "../../TextSearch/TextSearch";
 import {PriceListButton} from "../../../UI/PriceListButton/PriceListButton";
 import {BurgerMenu} from "../../BurgerMenu/BurgerMenu";
 import {CORRECT_TELEPHONE, SCHEDULE, TELEPHONE} from "../../../constants/info";
+import {Link} from "react-router-dom";
+import React from "react";
+import {routes} from "../../../routes/routes";
 
 export const HeaderBottom = () => {
     return (
@@ -17,11 +20,12 @@ export const HeaderBottom = () => {
                 <div className={`${styles.wrapper || ''} ${styles.flex}`}>
                     <BurgerMenu/>
                     <Logo isWhite={false} class={styles.logo}/>
-                    <Button isRounded={false}
-                            title={"Каталог"}
-                            class={`${styles.catalog} ${styles['mobile-hidden']}`}
-                            urlImage={catalogImage}
+                    <Link to={routes.CATALOG}> <Button isRounded={false}
+                                                       title={"Каталог"}
+                                                       class={`${styles.catalog} ${styles['mobile-hidden']}`}
+                                                       urlImage={catalogImage}
                     />
+                    </Link>
                     <TextSearch htmlFor={'search'}
                                 onClick={() => {
                                 }}

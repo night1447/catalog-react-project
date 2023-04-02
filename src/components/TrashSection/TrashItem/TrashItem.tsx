@@ -62,7 +62,6 @@ export const TrashItem = ({product}: Props) => {
                 </div>
                 <div className={styles.actions}>
                     <Counter
-                        disabled={product.state}
                         className={`${styles.counter} ${styles.action}`}
                         count={count}
                         onReplace={replaceCountHandler}

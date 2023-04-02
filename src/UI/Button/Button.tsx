@@ -15,7 +15,7 @@ type ButtonProps = {
 export const Button = (props: ButtonProps) => {
     return (
         <button type={props.type || 'button'}
-                disabled={props.disabled || false}
+                disabled={props.disabled}
                 className={`${styles.btn} ${props.isRounded ? styles.rounded : ''} ${props.class || ''}`}
                 onClick={props.onClick}>
             {props.title}

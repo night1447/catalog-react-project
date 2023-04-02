@@ -60,7 +60,6 @@ export const ProductCard = ({product, state}: Props) => {
                             onBlur={() => {
                             }}/>
                         <TrashButton
-                            disabled={!state}
                             count={count}
                             product={product}
                             class={`${styles.buy}

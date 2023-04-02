@@ -1,108 +1,242 @@
 [
   {
-    "id": 1213,
-    "name": "средство для мытья посуды Crystal",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_46a_4811457045881.webp",
-    "price": 8.76,
-    "size": "450 мл",
+    "id": 1214,
+    "name": "Мыло жидкое биоразлагаемое для мытья рук и тела SYNERGETIC",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_1c3_4623722341310.webp",
+    "price": 8.39,
+    "size": "500 мл",
     "typeSize": "volume",
     "types": [
-      "Уход за телом",
+      "Гигиена",
       "Уход за руками"
     ],
-    "barCode": 4604049097548,
-    "manufacturer": "Нэфис",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
-  },
-  {
-    "id": 1214,
-    "name": "Автмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_dcb_4814073000586.webp",
-    "price": 123.76,
-    "size": "15X28.8 г",
-    "typeSize": "weight",
-    "types": [
-      "Средства для бритья"
-    ],
-    "barCode": 4604049097548,
-    "manufacturer": "Aura",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
+    "barCode": 4623722341310,
+    "manufacturer": "Синергетик",
+    "brand": "SYNERGETIC",
+    "description": "замечательное средство для мытья рук с натуральным составом, ароматом и привлекательным розовым цветом. Уникальная обволакивающая текстура мыла придаст коже чистоту и невероятную нежность. Мыло гипоаллергенное, глубоко увлажняет. Состоит полностью из растительных компонентов."
   },
   {
     "id": 1215,
-    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
-    "price": 2.76,
-    "size": "1500 г",
+    "name": "Гель для душа мицеллярный LE PETIT MARSEILLAIS SENSITIVE с Алоэ Вера и Цветком Апельсинового дерева",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_af6_3574661575629.webp",
+    "price": 10.17,
+    "size": "400 мл",
+    "typeSize": "volume",
     "types": [
+      "Гель для душа",
       "Уход за телом"
     ],
-    "typeSize": "volume",
-    "barCode": 4604049097548,
-    "manufacturer": "Детский мир",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
+    "barCode": 3574661575629,
+    "manufacturer": "Johnson & Johnson S.p.A",
+    "brand": "Le Petit Marseillais",
+    "description": "Бережно очищает и эффективно удаляет частички пыли, и других загрязнений на коже. Увлажняет и успокаивает даже самую чувствительную и сухую кожу. Оставляет на теле после мытья мягкий, цветочный аромат и восхитительное ощущение чистоты, и комфорта."
   },
   {
     "id": 1216,
-    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
-    "price": 3.76,
-    "size": "1500 г",
+    "name": "Гель-концентрат для стирки GRASS Alpi White для белых вещей",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_69c_4670113605216.webp",
+    "price": 26.99,
+    "size": "1.8 л",
+    "typeSize": "volume",
     "types": [
-      "Уход за ногами"
+      "Стрика и уборка",
+      "Гель для стирки"
     ],
-    "typeSize": "weight",
-    "barCode": 4604049097548,
-    "manufacturer": "Xiaomi",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
+    "barCode": 4670113605216,
+    "manufacturer": "ТД ГраСС",
+    "brand": "GRASS",
+    "description": "Концентрированное жидкое средство для стирки белых и светлых тканей эффективно отстирывает даже самые сильные загрязнения, защищает ткань от появления серого оттенка, придает вещам ослепительную белизну, не повреждает структуру даже после многократных стирок. Легко выполаскивается из волокон ткани, придает вещам мягкость и облегчает глажение."
   },
   {
     "id": 1217,
-    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
-    "price": 5.76,
-    "size": "1500 г",
+    "name": "Гель для стирки УШАСТЫЙ НЯНЬ для детского белья",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_668_4820026412955.webp",
+    "price": 20.71,
+    "size": "1.2 л",
+    "typeSize": "volume",
     "types": [
-      "Уход за телом"
+      "Стрика и уборка",
+      "Гель для стирки"
     ],
-    "typeSize": "weight",
-    "barCode": 4604049097548,
-    "manufacturer": "Nestle",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
+    "barCode": 4600697020402,
+    "manufacturer": "НЕВСКАЯ КОСМЕТИКА",
+    "brand": "Ушастый нянь",
+    "description": "Эффективно удаляет сложные пятна и запахи, придает белью мягкость и свежесть. Бережно относится к тканям, сохраняя их первоначальный вид. Придает белью мягкость, свежесть и яркость красок. Обладает антибактериальным эффектом. Подходит для стирки одежды детей любого возраста."
   },
   {
     "id": 1218,
-    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
-    "price": 83.76,
-    "size": "1500 г",
+    "name": "Гель для душа мужской EXXE UFC Тонизирующий 2 в 1 с ментолом",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_6aa_4620739978614.webp",
+    "price": 6.70,
+    "size": "400 мл",
+    "typeSize": "volume",
     "types": [
-      "Уход за телом"
+      "Уход за телом",
+      "Гель для душа"
     ],
-    "typeSize": "weight",
-    "barCode": 4604049097548,
-    "manufacturer": "Apple",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
+    "barCode": 4620739978614,
+    "manufacturer": "ОРБИТА СП",
+    "brand": "EXXE",
+    "description": "Гель для душа мужской, который бережно очищает тело."
   },
   {
     "id": 1219,
-    "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_7bf_8714100714010.webp",
-    "price": 48.76,
-    "size": "1500 г",
+    "name": "Шампунь GARNIER Fructis Огуречная свежесть",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_1f9_3600541970809.webp",
+    "price": 12.10,
+    "size": "400 мл",
+    "typeSize": "volume",
     "types": [
-      "Уход за телом"
+      "Уход за телом",
+      "Шампунь"
     ],
+    "barCode": 3600541970809,
+    "manufacturer": "Л'ОРЕАЛЬ",
+    "brand": "FRUCTIS",
+    "description": "Новая формула Огуречная свежесть без силиконов, с экстрактом огурца и витаминами В3 и В6 мягко очищает волосы, удаляет избыток кожного жира. Волосы становятся свежими, мягкими, сильными, гладкими и блестящими."
+  },
+  {
+    "id": 1220,
+    "name": "Салфетки влажные для уборки PRESTO универсальные",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_d9a_5900095024941.webp",
+    "price": 15.59,
+    "size": "120 шт.",
+    "typeSize": "volume",
+    "types": [
+      "Уборка",
+      "Салфетки влажные"
+    ],
+    "barCode": 5900095024941,
+    "manufacturer": "HARPER HYGIENICS S.A.",
+    "brand": "Presto",
+    "description": "Предназначены для удаления загрязнений с любых гладких поверхностей, таких как дерево, керамика, стекло, пластик, линолеум, паркет, ламинат, плитка, мрамор, терраццо и т.д. Не раздражают кожу рук. Подходят для ежедневной уборки. Не оставляют разводов. Обладают приятным цветочным ароматом."
+  },
+  {
+    "id": 1221,
+    "name": "Мыло косметическое ЧИСТАЯ ЛИНИЯ Клубника",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_4ca_8720633007437.webp",
+    "price": 2.18,
+    "size": "75 г",
+    "typeSize": "volume",
+    "types": [
+      "Уход за телом",
+      "Мыло для рук"
+    ],
+    "barCode": 8720633007437,
+    "manufacturer": "ЭФКО КОСМЕТИК",
+    "brand": "Чистая линия",
+    "description": "Эффективно и деликатно очищает кожу рук от загрязнений, поддерживает защитный барьер кожи и обеспечивает увлажнение до 24 часов."
+  },
+  {
+    "id": 1222,
+    "name": "Зубная паста SPLAT Professional Биокальций",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_6e2_d1kiq4hq03m2yd4tde9spwgabkpgumiu_4603014001092.webp",
+    "price": 8.90,
+    "size": "100 мл",
+    "typeSize": "volume",
+    "types": [
+      "Уход за полостью рта",
+      "Гигиена"
+    ],
+    "barCode": 4603014001092,
+    "manufacturer": "Органик Фармасьютикалз",
+    "brand": "SPLAT",
+    "description": "Зубная паста Splat professional с биокальцием – это комплексный уход за полостью рта, направленный на снижение повышенной чувствительности зубов, укрепление эмали и защиту от кариеса."
+  },
+  {
+    "id": 1223,
+    "name": "Ополаскиватель для полости рта Parodontax Ежедневная защита десен (Daily gum care)",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_30e_5054563069917.webp",
+    "price": 17.19,
+    "size": "500 мл",
+    "typeSize": "volume",
+    "types": [
+      "Уход за полостью рта",
+      "Гигиена"
+    ],
+    "barCode": 5054563069917,
+    "manufacturer": "ГлаксоСмитКляйн Консьюмер Хелскер",
+    "brand": "Parodontax",
+    "description": "Ежедневная защита десен для ежедневной гигиены зубов и десен, обеспечивает свежесть дыхания на весь день. Улучшает состояние десен, освежает дыхание и борется с бактериями. Подходит для ежедневного использования. Не содержит фтористых соединений."
+  },
+  {
+    "id": 1224,
+    "name": "Средство для мытья окон HELP Свежий озон",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_90b_4605845000138.webp",
+    "price": 6.99,
+    "size": "750 мл",
+    "typeSize": "volume",
+    "types": [
+      "Стирка и уборка",
+      "Для стекол и зеркал"
+    ],
+    "barCode": 4605845000138,
+    "manufacturer": "Альфатехформ",
+    "brand": "Help",
+    "description": "Эффективное и мягкое средство, которое очищает любые блестящие поверхности до блеска, не оставляя разводов! Подойдет для ухода за стеклами автомобиля и кафельной плитки."
+  },
+  {
+    "id": 1225,
+    "name": "Крем чистящий SANITAR Универсал",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_4ea_4602984011032.webp",
+    "price": 7.40,
+    "size": "600 г",
     "typeSize": "weight",
-    "barCode": 4604049097548,
-    "manufacturer": "GeekVape",
-    "brand": "AOS",
-    "description": "used to refer to someone or something that is unknown or unspecified."
+    "types": [
+      "Стирка и уборка",
+      "Чистящее средство"
+    ],
+    "barCode": 4602984011032,
+    "manufacturer": "Ступинский химический завод",
+    "brand": "Sanitar",
+    "description": "Универсальное чистящее средство на основе натуральных микрогранул эффективно справляются с жиром, грязью, нагаром и известковым налетом и придает поверхностям приятный аромат. Средство подходит для очищения газовых и электрических плит, а также для изделий из стекла, нержавеющей стали и эмалированных поверхностей."
+  },
+  {
+    "id": 1226,
+    "name": "Средство труб SYNERGETIC для чистки и профилактики засоров в канализационных трубах",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_63a_4613720439041.webp",
+    "price": 8.99,
+    "size": "1 л",
+    "typeSize": "volume",
+    "types": [
+      "Стирка и уборка",
+      "Чистящее средство"
+    ],
+    "barCode": 4613720439041,
+    "manufacturer": "Синергетик",
+    "brand": "Synergetic",
+    "description": "Высокоэффективное средство против засоров прочищает засоры со стоячей водой, дезинфицирует и устраняет неприятные запахи. Безопасно абсолютно для всех видов труб. Биоразлагаемая формула не вредит микрофлоре септических установок."
+  },
+  {
+    "id": 1227,
+    "name": "Бальзам-ополаскиватель для волос FRUCTIS Garnier Кокосовый баланс укрепляющий для волос жирных у корней и сухих на кончиках",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_0b2_3600541981003.webp",
+    "price": 8.58,
+    "size": "200 мл",
+    "typeSize": "volume",
+    "types": [
+      "Уход за телом",
+      "Шампунь"
+    ],
+    "barCode": 3600541981003,
+    "manufacturer": "Л'ОРЕАЛЬ",
+    "brand": "FRUCTIS",
+    "description": " Бальзам мягко очищает у корней и увлажняет до самых кончиков. Волосы становятся мягкими, сильными и гладкими, благодаря комбинации фруктов, витаминов В3, В6 и протеина лимона."
+  },
+  {
+    "id": 1228,
+    "name": "Гель для душа KALLOS Spa Бодрящий",
+    "productImageUrl": "https://mila.by/images/cache/_thumb_500x500xin_upload_iblock_046_5998889514792.webp",
+    "price": 3.72,
+    "size": "200 мл",
+    "typeSize": "volume",
+    "types": [
+      "Уход за телом",
+      "Гель для душа"
+    ],
+    "barCode": 5998889514792,
+    "manufacturer": "Kallos Cosmetics",
+    "brand": "Kallos",
+    "description": " Приятный аромат подарит бурю эмоций, наполнит бодростью во время купания. Сохраняет ощущение комфорта на 24 часа. Крем-гель для душа содержит масло бразильского апельсина. Подходит для всех типов кожи."
   }
 ]

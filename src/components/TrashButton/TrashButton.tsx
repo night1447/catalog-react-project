@@ -31,7 +31,7 @@ export const TrashButton = memo((props: Props) => {
     return (
         <>
             <Button
-                disabled={props.disabled}
+                disabled={props.disabled || false}
                 onClick={addProductHandler}
                 class={`${props.class || ''}`}
                 imageClass={styles.button}
