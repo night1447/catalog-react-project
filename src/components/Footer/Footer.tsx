@@ -10,6 +10,8 @@ import {CORRECT_TELEPHONE, EMAIL, SCHEDULE, TELEPHONE} from "../../constants/inf
 import {MENU} from "../../constants/navigation";
 import visaImage from '../../assets/decor/payments/visa.svg'
 import masterCardImage from '../../assets/decor/payments/mastercard.svg'
+import { routes } from "../../routes/routes";
+import { Link } from "react-router-dom";
 
 interface ISocNetwork {
     imageUrl: string,
@@ -36,7 +38,6 @@ export const SOC_NETWORKS: ISocNetwork[] = [
     {imageUrl: telegramImage, value: 'telegram'}];
 export const CATEGORY: string[] = ['Бытовая химия', 'Косметика и гигиена', 'Товары для дома', 'Товары для детей и мам', 'Посуда'];
 export const Footer = () => {
-    // @ts-ignore
     return (
         <footer className={styles.footer}>
             <Container>
@@ -47,6 +48,7 @@ export const Footer = () => {
                             Компания «Султан» — снабжаем розничные магазины товарами
                             "под ключ" в Кокчетаве и Акмолинской области
                         </p>
+								<Link to={routes.ADMIN} className={styles.breadcrumbs}> Админка</Link>
                         <p className={styles.breadcrumbs}>Подпишись на скидки и акции</p>
                         <EmailSender htmlFor={'footer-email-sender'}/>
                     </li>

@@ -218,6 +218,7 @@
   display: none !important;
   @include adpt(868) {
     display: flex !important;
+	 justify-content: center;
     flex-direction: row-reverse;
     background-color: transparent !important;
     color: var(--blue) !important;
