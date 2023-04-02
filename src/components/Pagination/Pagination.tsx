@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './pagination.module.scss'
 import {SrOnly} from "../../UI/SrOnly/SrOnly";
-import arrowImage from '../../assets/arrow-orange.svg'
+import arrowImage from '../../assets/decor/arrows/arrow-orange.svg'
+import {COUNT_VIEW_PRODUCT} from "../../constants/filter";
 
 const RANGE = 2;
-const getCountPages = (count: number, countViewProduct: number) => Math.round(count / countViewProduct);
+const getCountPages = (count: number, countViewProduct: number) => {
+    return Math.ceil(count / countViewProduct);
+}
 
 type PaginationProps = {
     count: number,
-    countViewProduct: number,
     class: string,
     onPageChange: (page: number) => void,
 };
@@ -27,9 +29,13 @@ const ButtonNavigation = ({isNext}: ButtonNavigationProps) => {
         </SrOnly>
     </button>)
 }
-export const Pagination = ({count, countViewProduct, class: className, onPageChange}: PaginationProps) => {
+export const Pagination = ({count, class: className, onPageChange}: PaginationProps) => {
     const [currentPage, setCurrentPage] = useState(0);
-    if (count <= countViewProduct) {
+    useEffect(() => {
+        setCurrentPage(0);
+    }, [count]);
+
+    if (count <= COUNT_VIEW_PRODUCT) {
         return (
             <></>
         );
@@ -46,7 +52,7 @@ export const Pagination = ({count, countViewProduct, class: className, onPageCha
                     setCurrentPage(selectedItem.selected)
                 }}
                 nextLabel={<ButtonNavigation isNext={true}/>}
-                pageCount={getCountPages(count, countViewProduct)}
+                pageCount={getCountPages(count, COUNT_VIEW_PRODUCT)}
                 pageClassName={`${styles.item}`}
                 pageRangeDisplayed={RANGE}
                 previousLabel={<ButtonNavigation isNext={false}/>}

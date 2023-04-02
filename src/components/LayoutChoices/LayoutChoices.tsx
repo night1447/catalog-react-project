@@ -1,7 +1,7 @@
 import styles from './layout.module.scss'
 import {LayoutChoice} from "./LayoutChoice/LayoutChoice";
-import gridImage from '../../assets/grid-button.svg'
-import rowImage from '../../assets/row-button.svg'
+import gridImage from '../../assets/decor/helpers/grid-button.svg'
+import rowImage from '../../assets/decor/helpers/row-button.svg'
 import {LayoutPayload} from "../../store/reducers/Filters/Layout/LayoutTypes";
 
 interface IChoises extends LayoutPayload {

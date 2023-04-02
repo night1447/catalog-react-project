@@ -1,4 +1,4 @@
-type TypeSize = 'weight' | 'volume';
+export type TypeSize = 'weight' | 'volume' | '';
 
 export interface ICatalogProduct {
     id: number,
@@ -11,4 +11,5 @@ export interface ICatalogProduct {
     barCode: number,
     manufacturer: string,
     brand: string,
+    description: string,
 }

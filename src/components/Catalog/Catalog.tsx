@@ -1,17 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from './catalog.module.scss'
 import {TypesProduct} from "../TypesProduct/TypesProduct";
 import {LayoutChoices} from "../LayoutChoices/LayoutChoices";
 import {Sort} from "../Sort/Sort";
 import {CatalogContent} from "./CatalogContent/CatalogContent";
 import Filter from "../Filter/Filter";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useProductService} from "../../services/ProductService";
 
 
 export const Catalog = () => {
+        const state = useTypedSelector(state => state);
+        const [products, setProducts] = useState(state.productReducer.products);
+        const {getAllProducts, hasError, hasLoading} = useProductService();
+
+        //LOADING
+        useEffect(() => {
+            if (products.length === 0) {
+                getAllProducts().then((data) => setProducts(data));
+            }
+        }, []);
         return (
             <>
                 <div className={styles['title-wrapper']}>
-                    <h2 className={styles.title}>Косметика и гигиена</h2>
+                    <h1 className={styles.title}>Косметика и гигиена</h1>
                     <div className={styles.inner}>
                         <Sort class={styles.sort}/>
                         <LayoutChoices class={styles.layout}/>
@@ -19,9 +31,9 @@ export const Catalog = () => {
                 </div>
                 <TypesProduct class={styles.types}/>
                 <div className={styles.main}>
-                    <Filter class={styles.filter}/>
+                    <Filter class={styles.filter} products={products}/>
                     <div className={styles.wrapper}>
-                        <CatalogContent/>
+                        <CatalogContent hasLoading={hasLoading} hasError={hasError} products={products}/>
                         <p className={styles.description}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo,
                             vestibulum

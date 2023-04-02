@@ -1,0 +1,58 @@
+@import "./src/settings";
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.error {
+  border: 1px solid var(--red);
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--black);
+  padding-bottom: 100px;
+  @include adpt($bmob-r) {
+    padding-bottom: 50px;
+  }
+}
+
+.subtitle {
+  font-size: 24px;
+  color: var(--accent);
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.btn {
+  margin-top: 30px;
+  max-height: 100px;
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.type{
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--black);
+}

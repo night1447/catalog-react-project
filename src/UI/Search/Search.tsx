@@ -2,7 +2,7 @@ import React, {ChangeEvent} from 'react';
 import styles from "./search.module.scss";
 import {Input} from "../Input/Input";
 import {Button} from "../Button/Button";
-import searchImage from "../../assets/search.svg";
+import searchImage from "../../assets/decor/helpers/search.svg";
 import {Label} from "../Label/Label";
 
 type Props = {

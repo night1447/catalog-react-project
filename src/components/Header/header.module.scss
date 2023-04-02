@@ -45,6 +45,10 @@
 .blocks {
   display: flex;
   align-items: center;
+  @include adpt($mtab-r) {
+    width: 100%;
+    justify-content: center;
+  }
   @include adpt(868) {
     flex-direction: column;
     align-items: unset;
@@ -79,9 +83,9 @@
 
 
   &-mobile {
-    display: none;
+    display: none !important;
     @include adpt(868) {
-      display: block;
+      display: block !important;
     }
   }
 
@@ -196,7 +200,7 @@
 
 .mobile-hidden {
   @include adpt(868) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -211,12 +215,12 @@
 }
 
 .button {
-  display: none;
+  display: none !important;
   @include adpt(868) {
-    display: flex;
+    display: flex !important;
     flex-direction: row-reverse;
-    background-color: transparent;
-    color: var(--blue);
+    background-color: transparent !important;
+    color: var(--blue) !important;
     padding: 12px 0;
     &:hover {
       background-color: transparent;

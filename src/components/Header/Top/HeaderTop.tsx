@@ -3,8 +3,8 @@ import {Navigation} from "../../Navigation/Navigation";
 import Container from "../../../UI/Container/Container";
 import {Contacts} from "../Contacts/Contacts";
 import {Button} from "../../../UI/Button/Button";
-import searchImage from '../../../assets/search-black.svg'
-import catalogImage from '../../../assets/catalog-black.svg'
+import searchImage from '../../../assets/decor/helpers/search-black.svg'
+import catalogImage from '../../../assets/decor/helpers/catalog-black.svg'
 
 export const HeaderTop = () => {
     return (

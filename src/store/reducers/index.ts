@@ -4,6 +4,7 @@ import layoutReducer from "./Filters/Layout/LayoutReducer";
 import typesProductReducer from "./Filters/TypesProduct/typesProductReducers";
 import ProductReducer from "./Products/ProductReducer";
 import filterReducer from "./Filters/Filter/FilterReducer";
+import trashReducer from "./Trash/TrashReducer";
 
 
 export const rootReducer = combineReducers({
@@ -12,7 +13,7 @@ export const rootReducer = combineReducers({
     typesProductReducer: typesProductReducer,
     productReducer: ProductReducer,
     filterReducer: filterReducer,
-
+    trashReducer: trashReducer,
 })
 
 export type RootReducerType = ReturnType<typeof rootReducer>;

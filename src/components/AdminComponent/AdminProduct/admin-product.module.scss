@@ -1,0 +1,32 @@
+.img {
+  width: 500px;
+  height: 300px;
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 5px;
+
+  &_value {
+    font-weight: 600;
+    & span:after{
+      content: ',';
+    }
+  }
+}
+
+.btn {
+  &_remove {
+    background-color: var(--red);
+  }
+
+  &_edit {
+    background-color: var(--beige);
+    color: var(--black);
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+}

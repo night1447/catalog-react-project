@@ -2,13 +2,13 @@ import Container from "../../../UI/Container/Container";
 import styles from '../header.module.scss'
 import {Logo} from "../../../UI/Logo/Logo";
 import {Button} from "../../../UI/Button/Button";
-import catalogImage from "../../../assets/catalog.svg"
-import consultantImage from "../../../assets/consultant.png"
+import catalogImage from "../../../assets/decor/helpers/catalog.svg"
+import consultantImage from "../../../assets/decor/helpers/consultant.png"
 import {Trash} from "../../Trash/Trash";
 import {TextSearch} from "../../TextSearch/TextSearch";
 import {PriceListButton} from "../../../UI/PriceListButton/PriceListButton";
 import {BurgerMenu} from "../../BurgerMenu/BurgerMenu";
-import {CORRECT_TELEPHONE, SCHEDULE, TELEPHONE} from "../Top/constants";
+import {CORRECT_TELEPHONE, SCHEDULE, TELEPHONE} from "../../../constants/info";
 
 export const HeaderBottom = () => {
     return (
@@ -37,7 +37,7 @@ export const HeaderBottom = () => {
                                 время работы: {SCHEDULE.start}-{SCHEDULE.end}
                             </p>
                             <a className={`${styles.href} ${styles['href_underline']} ${styles['consultant-item']}`}
-                               href={'#'}>
+                               href={'/'}>
                                 Заказать звонок
                             </a>
                         </div>

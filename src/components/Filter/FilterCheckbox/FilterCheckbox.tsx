@@ -1,6 +1,4 @@
-// @flow
 import * as React from 'react';
-import {ChangeEvent} from 'react';
 import {Checkbox} from "../../../UI/Checkbox/Checkbox";
 import styles from './checkbox.module.scss'
 
@@ -13,7 +11,7 @@ type FilterCheckboxProps = {
 
 };
 export const FilterCheckbox = (props: FilterCheckboxProps) => {
-    const checkboxHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const checkboxHandler = () => {
         props.onToggle(props.title);
     };
 

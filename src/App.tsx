@@ -1,18 +1,17 @@
 import React from 'react';
 import './app.scss';
-import {Router} from "./components/Router/Router";
-import {Header} from "./components/Header/Header";
-import {Main} from "./components/Main/Main";
-import {Footer} from "./components/Footer/Footer";
+import store, {persistor} from "./store/store";
+import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
+import {RouterProvider} from "react-router-dom";
+import router from "./routes/index";
 
 const App = () => {
-    return <>
-        <Header/>
-        <Main>
-            <Router/>
-        </Main>
-        <Footer/>
-    </>
+    return <Provider store={store}>
+        <PersistGate persistor={persistor}>
+            <RouterProvider router={router}/>
+        </PersistGate>
+    </Provider>
 }
 
 export default App;

@@ -1,0 +1,277 @@
+@import "../../../settings";
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  @include adpt($tab-r) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  height: 480px;
+  @include adpt($tab-r) {
+    height: 400px;
+  }
+  @include adpt($stab-r) {
+    height: 300px;
+  }
+  @include adpt($bmob-r) {
+    height: 200px;
+  }
+}
+
+.state {
+  margin-bottom: 10px;
+
+  &_has {
+    color: var(--green);
+  }
+
+  &_empty {
+    color: var(--red);
+  }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 11px;
+  color: var(--black);
+
+  &_bold {
+    font-weight: 800;
+  }
+
+  @include adpt($mtab-r) {
+    font-size: 24px;
+  }
+  @include adpt($bmob-r) {
+    font-size: 16px;
+  }
+}
+
+.size {
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 12px;
+  font-size: 12px;
+  margin-bottom: 25px;
+
+  &_padding {
+    padding-left: 25px;
+  }
+  @include adpt($bmob-r){
+    display: none;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  min-height: 77px;
+  min-width: 77px;
+  flex-shrink: 0;
+  padding: 30px;
+  background-color: var(--white);
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: var(--blue);
+  box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.1);
+  border-radius: 10px;
+  @include adpt($stab-r){
+    min-height: 59px;
+    min-width: 59px;
+  }
+}
+
+.attention {
+  font-size: 12px;
+  max-width: 320px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  &_bold {
+    font-weight: 700;
+  }
+
+  @include adpt($bmob-r) {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+.price-button {
+  margin-bottom: 10px;
+  @include adpt($bmob-r) {
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+
+  &_mb {
+    margin-bottom: 25px;
+    @include adpt($tab-r) {
+      justify-content: space-between;
+    }
+  }
+
+  @include adpt($tab-r) {
+    justify-content: space-between;
+  }
+}
+
+.item {
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: 400;
+
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  &_value {
+    color: var(--black);
+    font-weight: 500;
+  }
+}
+
+.description {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.drop-item {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black);
+
+  &:not(:first-child) {
+    padding-top: 20px;
+  }
+
+  &:not(:last-child) {
+    position: relative;
+    padding-bottom: 20px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      height: 1px;
+      border-bottom: 1px dashed rgba(63, 78, 101, 0.3);
+    }
+  }
+
+}
+
+.subtitle {
+  transition: margin-bottom 1s;
+  margin-bottom: 15px;
+}
+
+.short-info {
+  margin-bottom: 30px;
+}
+
+.price {
+  font-weight: 800;
+  font-size: 30px;
+  margin-right: 40px;
+  color: var(--black);
+  min-width: 114px;
+  margin-bottom: 20px;
+}
+
+.counter {
+  margin-right: 38px;
+  margin-bottom: 20px;
+  @include adpt($bmob-r) {
+    margin-right: 0;
+  }
+}
+
+.share {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-size: 20px 20px;
+  transition: background-color 0.5s;
+  @include adpt($bmob-r) {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: var(--light-blue);
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & a {
+    font-size: 16px;
+    transition: 0.5s color;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.not-found-title {
+  margin-bottom: 20px;
+}
+
+.buy {
+  margin-bottom: 20px;
+  @include adpt($bmob-r) {
+    flex-basis: 60%;
+    margin-bottom: 10px;
+  }
+}
+
+.mobile {
+  &_show {
+    display: none;
+    @include adpt($bmob-r) {
+      display: block;
+    }
+  }
+
+  &_hidden {
+    @include adpt($bmob-r) {
+      display: none;
+    }
+  }
+
+}

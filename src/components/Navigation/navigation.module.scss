@@ -1,7 +1,10 @@
 @import "../../settings";
 
 .nav {
-  @include adpt(868){
+  @include adpt($mtab-r) {
+    width: 100%;
+  }
+  @include adpt(868) {
     display: none;
   }
 }
@@ -9,8 +12,13 @@
 .list {
   display: flex;
   align-items: center;
+  @include adpt($mtab-r) {
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
   @include adpt(868) {
     align-items: unset;
+    justify-content: unset;
     flex-direction: column;
   }
 }
@@ -20,6 +28,9 @@
 
   &:not(:last-child) {
     margin-right: 60px;
+    @include adpt($desm-r) {
+      margin-right: 20px;
+    }
     @include adpt(868) {
       margin-right: 0;
       margin-bottom: 20px;

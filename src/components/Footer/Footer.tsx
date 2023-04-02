@@ -1,14 +1,15 @@
 import styles from "./footer.module.scss";
 import Container from "../../UI/Container/Container";
-import whatsUpImage from '../../assets/whatsup.svg';
-import telegramImage from '../../assets/telegram.svg';
+import whatsUpImage from '../../assets/decor/soc-links/whatsup.svg';
+import telegramImage from '../../assets/decor/soc-links/telegram.svg';
 import {SrOnly} from "../../UI/SrOnly/SrOnly";
 import {PriceListButton} from "../../UI/PriceListButton/PriceListButton";
 import {EmailSender} from "../EmailSender/EmailSender";
 import {Logo} from "../../UI/Logo/Logo";
-import {CORRECT_TELEPHONE, EMAIL, MENU, SCHEDULE, TELEPHONE} from "../Header/Top/constants";
-import visaImage from '../../assets/visa.svg'
-import masterCardImage from '../../assets/mastercard.svg'
+import {CORRECT_TELEPHONE, EMAIL, SCHEDULE, TELEPHONE} from "../../constants/info";
+import {MENU} from "../../constants/navigation";
+import visaImage from '../../assets/decor/payments/visa.svg'
+import masterCardImage from '../../assets/decor/payments/mastercard.svg'
 
 interface ISocNetwork {
     imageUrl: string,
@@ -35,6 +36,7 @@ export const SOC_NETWORKS: ISocNetwork[] = [
     {imageUrl: telegramImage, value: 'telegram'}];
 export const CATEGORY: string[] = ['Бытовая химия', 'Косметика и гигиена', 'Товары для дома', 'Товары для детей и мам', 'Посуда'];
 export const Footer = () => {
+    // @ts-ignore
     return (
         <footer className={styles.footer}>
             <Container>
@@ -55,7 +57,7 @@ export const Footer = () => {
                         <ul className={styles.properties}>
                             {MENU.map(value =>
                                 <li className={styles.property} key={value}>
-                                    <a href="#" className={styles.href}>
+                                    <a href={'/'} className={styles.href}>
                                         {value}
                                     </a>
                                 </li>)}
@@ -68,7 +70,7 @@ export const Footer = () => {
                         <ul className={styles.properties}>
                             {CATEGORY.map(value =>
                                 <li className={styles.property} key={value}>
-                                    <a href="#" className={styles.href}>
+                                    <a href={'/'} className={styles.href}>
                                         {value}
                                     </a>
                                 </li>)}
@@ -89,7 +91,7 @@ export const Footer = () => {
                                     <li className={`${styles['soc-link']}`}
                                         key={item.value}
                                         style={{backgroundImage: `url(${item.imageUrl})`}}>
-                                        <a href="#" className={`${styles.href} ${styles.href_abs}`}>
+                                        <a href={'/'} className={`${styles.href} ${styles.href_abs}`}>
                                             <SrOnly>
                                                 Перейти по ссылке на {item.value}
                                             </SrOnly>
@@ -110,7 +112,7 @@ export const Footer = () => {
                                     {TELEPHONE}
                                 </a>
                                 <p className={styles.schedule}>время работы: {SCHEDULE.start}-{SCHEDULE.end}</p>
-                                <a href="#" className={`${styles.order} ${styles.href} ${styles.href_underline}`}>
+                                <a href={'/'} className={`${styles.order} ${styles.href} ${styles.href_underline}`}>
                                     Заказать звонок
                                 </a>
                                 <a href={`mailto:${EMAIL}`} className={styles.email}>
@@ -127,7 +129,7 @@ export const Footer = () => {
                                         <li className={`${styles['soc-link']}`}
                                             key={item.value}
                                             style={{backgroundImage: `url(${item.imageUrl})`}}>
-                                            <a href="#" className={`${styles.href} ${styles.href_abs}`}>
+                                            <a href={'/'} className={`${styles.href} ${styles.href_abs}`}>
                                                 <SrOnly>
                                                     Перейти по ссылке на {item.value}
                                                 </SrOnly>

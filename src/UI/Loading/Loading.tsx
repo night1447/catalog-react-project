@@ -1,5 +1,5 @@
 import styles from "./loading.module.scss"
-import loadingImage from "../../assets/loading.gif"
+import loadingImage from "../../assets/handlers/loading.gif"
 
 export const Loading = () => {
     return (

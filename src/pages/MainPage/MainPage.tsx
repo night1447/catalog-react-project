@@ -1,8 +1,9 @@
+import {Page} from "../Page/Page";
 
 export const MainPage = () => {
     return (
-        <div>
+        <Page>
             MAIN PAge
-        </div>
+        </Page>
     );
 };

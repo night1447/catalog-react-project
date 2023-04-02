@@ -1,0 +1,84 @@
+@import "../../settings";
+
+.message {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  padding: 30px;
+  z-index: 20;
+  border-radius: 10px;
+  background-color: var(--white);
+  max-width: 400px;
+  font-weight: 300;
+  font-size: 16px;
+  border: 2px solid;
+  animation: messageToggle forwards 3s;
+
+  &.info {
+    border-color: var(--light-blue_card);
+  }
+
+  &.error {
+    border-color: var(-red);
+  }
+
+  &.success {
+    border-color: var(--green);
+  }
+
+  @include adpt($bmob-r) {
+    right: 0;
+    top: 15px;
+    padding: 20px;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 25px;
+  height: 30px;
+  background-color: unset;
+
+  &::after, &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: var(--black);
+    border-radius: 5px;
+    transition: background-color 0.5s;
+  }
+
+  &::after {
+    transform: rotate(-45deg) translate(-8px, -9px);
+  }
+
+  &::before {
+    transform: rotate(45deg) translate(-9px, 8px);
+  }
+
+  &:hover {
+    &::after, &::before {
+      background-color: var(--red);
+    }
+  }
+}
+
+
+@keyframes messageToggle {
+  0% {
+    transform: translateY(-200%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70%{
+    transform: translateY(0);
+
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}

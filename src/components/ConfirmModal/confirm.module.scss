@@ -1,0 +1,22 @@
+.success {
+  background-color: var(--green);
+  margin-right: 15px;
+}
+
+.decline {
+  background-color: var(--red);
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+}

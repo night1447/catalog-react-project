@@ -1,5 +1,5 @@
 import styles from './sort.module.scss'
-import arrowImage from "../../assets/select-icon.svg"
+import arrowImage from "../../assets/decor/helpers/select-icon.svg"
 import {BaseSyntheticEvent} from "react";
 import {useDispatch} from "react-redux";
 import {setOptionCreator} from '../../store/reducers/Filters/Sort/sortAction'

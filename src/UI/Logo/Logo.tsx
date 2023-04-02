@@ -1,7 +1,7 @@
 import styles from './logo.module.scss'
 import {SrOnly} from "../SrOnly/SrOnly";
-import whiteLogoImage from '../../assets/logo-white.svg';
-import blackLogoImage from '../../assets/logo-black.svg';
+import whiteLogoImage from '../../assets/logo/logo-white.svg';
+import blackLogoImage from '../../assets/logo/logo-black.svg';
 
 interface LogoProps {
     isWhite: boolean,

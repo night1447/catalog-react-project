@@ -1,10 +1,9 @@
 import styles from "./filter.module.scss";
-import {Counter} from "../Counter/Counter";
+import {RangeValueCounter} from "../RangeValueCounter/RangeValueCounter";
 import React, {useEffect, useReducer, useState} from "react";
 import {Button} from "../../UI/Button/Button";
-import trashImage from '../../assets/trashcan.svg';
-import arrowUpImage from '../../assets/arrow-up-black.svg';
-import {ICatalogProduct} from "../../models/ICatalogProduct";
+import trashImage from '../../assets/decor/helpers/trashcan.svg';
+import arrowUpImage from '../../assets/decor/arrows/arrow-up-black.svg';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {FilterBlock} from "./FilterBlock/FilterBlock";
 import {useDispatch} from "react-redux";
@@ -19,52 +18,22 @@ import {
     removeProductAction,
     resetTypesProducts
 } from "../../store/reducers/Filters/TypesProduct/typesProductAction";
-import {checkboxType} from "./FilterTypes";
-import {COUNT_PER_VIEW_MANUFACTURERS, initialState, settingsFilterState} from "./FilterVariables";
+import {FilterProps} from "./FilterTypes";
+import {initialState} from "./FilterVariables";
 import {settingFiltersReducer} from "./FilterReducer";
+import {COUNT_PER_VIEW_MANUFACTURERS} from "../../constants/filter";
+import {getAllManufacturers, getFilteredManufactures, getMaxValue, getMinValue} from "./FIlterFunctions";
+import {CURRENCY} from "../../constants/info";
 
-const getAllManufacturers = (products: ICatalogProduct[]): checkboxType[] => {
-    const map: Map<string, number> = new Map();
-    products.forEach(product => {
-        let count = map.get(product.manufacturer);
-        map.set(product.manufacturer, count ? count + 1 : 1);
-    })
-    const massive: checkboxType[] = [];
-    map.forEach((value, key, map) => {
-        massive.push({
-            count: value || 0,
-            title: key,
-        })
-    })
-    return massive;
-};
-const getFilteredManufactures = (manufacturers: checkboxType[], value: string) => {
-    return manufacturers.filter(manufacturer => manufacturer.title.toLowerCase().trim().includes(value.toLowerCase().trim()))
-}
-const getMinValue = (products: ICatalogProduct[]): number => {
-    const min = Math.min(...products.map(product => product.price));
-    if (!Number.isFinite(min)) {
-        return 0
-    }
-    return min;
-};
-const getMaxValue = (products: ICatalogProduct[]): number => {
-    const max = Math.max(...products.map(product => product.price));
-    if (!Number.isFinite(max)) {
-        return 0
-    }
-    return max;
-}
-
-interface FilterProps {
-    class?: string,
-}
-
-const Filter = (props: FilterProps) => {
+const Filter = ({products, class: className}: FilterProps) => {
     const [manufacturers, setManufacturers] = useState(initialState);
     const [isShow, setIsShow] = useState(true);
-    const [settingFilters, settingFiltersDispatch] = useReducer(settingFiltersReducer, settingsFilterState);
-    const products = useTypedSelector(state => state.productReducer.products);
+    const manufacture = useTypedSelector(state => state.filterReducer.manufacturers);
+    const price = useTypedSelector(state => state.filterReducer.counter);
+    const [settingFilters, settingFiltersDispatch] = useReducer(settingFiltersReducer, {
+        manufacturers: manufacture,
+        price
+    });
     const types = useTypedSelector(state => state.typesProductReducer.typesProduct);
     const selectTypes = useTypedSelector(state => state.typesProductReducer.selectedTypesProduct);
 
@@ -72,12 +41,10 @@ const Filter = (props: FilterProps) => {
 
     useEffect(() => {
         const massive = getAllManufacturers(products);
-        setManufacturers((prevState) => ({
+        setManufacturers(() => ({
             manufacturers: massive,
             filteredManufacturers: massive
         }))
-        settingFiltersDispatch({type: "SET_MIN_VALUE", payload: getMinValue(products)});
-        settingFiltersDispatch({type: "SET_MAX_VALUE", payload: getMaxValue(products)});
     }, [products]);
 
     const searchHandler = (value: string) => {
@@ -120,7 +87,7 @@ const Filter = (props: FilterProps) => {
     };
 
     return (
-        <aside className={`${styles.aside} ${props.class || ''}`}>
+        <aside className={`${styles.aside} ${className || ''}`}>
             <h3 className={`${styles.title} ${styles.title_tt}`}>
                 ПОДБОР ПО ПАРАМЕТРАМ
             </h3>
@@ -130,11 +97,11 @@ const Filter = (props: FilterProps) => {
                     urlImage={arrowUpImage}/>
             <div className={`${styles.blocks} ${isShow ? styles.active : ''}`}>
                 <div className={styles.block}>
-                    <h4 className={styles.subtitle}>Цена <span className={styles.subtitle_value}>₸</span></h4>
-                    <Counter min={getMinValue(products)}
-                             max={getMaxValue(products)}
-                             setMin={setMinValueHandler}
-                             setMax={setMaxValueHandler}
+                    <h4 className={styles.subtitle}>Цена <span className={styles.subtitle_value}>{CURRENCY}</span></h4>
+                    <RangeValueCounter min={getMinValue(products)}
+                                       max={getMaxValue(products)}
+                                       setMin={setMinValueHandler}
+                                       setMax={setMaxValueHandler}
                     />
                 </div>
                 <div className={`${styles.block} ${styles.block_border}`}>
@@ -151,6 +118,7 @@ const Filter = (props: FilterProps) => {
                     <Button isRounded={false} title={'Показать'} onClick={useFilterHandler} class={styles.show}/>
                     <Button isRounded={true} onClick={clearFilterHandler} urlImage={trashImage}/>
                 </div>
+
                 <ul>
                     {types.map((item) => <li
                         className={`${styles.block} ${styles.block_border} ${styles.type} ${selectTypes.includes(item) && styles.active}`}

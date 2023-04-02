@@ -3,7 +3,7 @@ import {Label} from "../../UI/Label/Label";
 import styles from "../Footer/footer.module.scss";
 import {Input} from "../../UI/Input/Input";
 import {Button} from "../../UI/Button/Button";
-import arrowImage from "../../assets/arrow-right-white.svg";
+import arrowImage from "../../assets/decor/arrows/arrow-right-white.svg";
 
 type Props = {
     htmlFor: string,

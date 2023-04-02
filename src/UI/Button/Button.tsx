@@ -9,11 +9,13 @@ type ButtonProps = {
     title?: string,
     onClick?: () => void,
     urlImage?: string,
-    isRounded: boolean
+    isRounded: boolean,
+    disabled?: boolean,
 };
 export const Button = (props: ButtonProps) => {
     return (
         <button type={props.type || 'button'}
+                disabled={props.disabled || false}
                 className={`${styles.btn} ${props.isRounded ? styles.rounded : ''} ${props.class || ''}`}
                 onClick={props.onClick}>
             {props.title}

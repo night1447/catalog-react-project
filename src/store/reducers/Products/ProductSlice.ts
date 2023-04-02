@@ -15,12 +15,14 @@ export const ProductSlice = createSlice({
         setProducts(state, action: PayloadAction<ICatalogProduct[]>) {
             state.products = action.payload;
         },
-        editProduct(state, action: PayloadAction<ICatalogProduct>) {
-            const id = state.products.findIndex(item => item.id === action.payload.id);
-            state.products[id] = action.payload;
+        addProduct(state, action: PayloadAction<ICatalogProduct>) {
+            state.products.push(action.payload);
         },
-        deleteProduct(state, action: PayloadAction<number>) {
-            state.products = state.products.filter(item => item.id !== action.payload);
+        editProduct(state, action: PayloadAction<ICatalogProduct>) {
+            state.products = state.products.map(item => item.id === action.payload.id ? action.payload : item);
+        },
+        deleteProduct(state, action: PayloadAction<ICatalogProduct>) {
+            state.products = state.products.filter(item => item.id !== action.payload.id);
         }
     }
 })

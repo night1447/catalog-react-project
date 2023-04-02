@@ -1,11 +1,12 @@
 import {ICatalogProduct} from "../../../models/ICatalogProduct";
 import styles from "./product.module.scss"
-import boxImage from "../../../assets/box.svg"
-import bottleImage from "../../../assets/bottle.svg"
-import {Button} from "../../../UI/Button/Button";
-import trashImage from "../../../assets/trash-little.svg"
+import boxImage from "../../../assets/decor/types/box.svg"
+import bottleImage from "../../../assets/decor/types/bottle.svg"
 import {Link} from "react-router-dom";
 import React from "react";
+import {TrashButton} from "../../TrashButton/TrashButton";
+import {SrOnly} from "../../../UI/SrOnly/SrOnly";
+import {CURRENCY} from "../../../constants/info";
 
 interface CatalogItemProps {
     product: ICatalogProduct,
@@ -46,15 +47,17 @@ export const CatalogItem = (props: CatalogItemProps) => {
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.price}>
-                    <span>{props.product.price}</span> ₸
+                    <span>{props.product.price}</span> {CURRENCY}
                 </div>
-                <Button
-                    imageClass={styles.button}
-                    title={'В корзину'}
-                    urlImage={trashImage}
-                    isRounded={false}
+                <TrashButton
+                    class={styles.btn}
+                    product={props.product}
+                    count={1}
                 />
-                <Link to={`/product/${props.product.id}`}>продукт</Link>
+                <Link to={`${props.product.id}`} className={styles.link}>
+                    <SrOnly>Перейти на страницу
+                        товара</SrOnly>
+                </Link>
             </div>
         </li>
     );

@@ -4,29 +4,20 @@ import {CatalogList} from "../CatalogList/CatalogList";
 import {Pagination} from "../../Pagination/Pagination";
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {setProductsAction} from "../../../store/reducers/Products/ProductAction";
-import {setTypesProductAction} from "../../../store/reducers/Filters/TypesProduct/typesProductAction";
 import {ICatalogProduct} from "../../../models/ICatalogProduct";
 import {Error} from "../../../UI/Error/Error";
 import {Loading} from "../../../UI/Loading/Loading";
 import {DECREASE_OPTION, INCREASE_OPTION, NAME_OPTION, PRICE_OPTION} from "../../Sort/constants";
-import {useProductService} from "../../../services/ProductService";
+import {COUNT_VIEW_PRODUCT} from "../../../constants/filter";
 
-const COUNT_VIEW_PRODUCT: number = 3;
+
 const initialState: ICatalogProduct[] = [];
 
-const getAllTypesProduct = (products: ICatalogProduct[]): string[] => {
-    let massiveTypes: string[] = [];
-    products.map(product => {
-        const types = product.types;
-        massiveTypes = [...types, ...massiveTypes];
-    })
-    return Array.from(new Set(massiveTypes));
-};
 
 const findOccurrencesArrays = (firstArray: string[], secondArray: string[]): boolean => {
+   secondArray = secondArray.map(item => item.trim().toLowerCase());
     for (let i = 0; i < firstArray.length; i++) {
-        if (secondArray.includes(firstArray[i])) {
+        if (secondArray.includes(firstArray[i].trim().toLowerCase())) {
             return true;
         }
     }
@@ -58,29 +49,22 @@ const sortingMassiveByField = (array: any[], field: string, decrease?: boolean) 
 const settingPaginationState: { start: number; end: number } = {start: 0, end: COUNT_VIEW_PRODUCT};
 
 
-export const CatalogContent = () => {
+interface CatalogProps {
+    products: ICatalogProduct[],
+    hasError: boolean,
+    hasLoading: boolean,
+}
+
+export const CatalogContent = ({products, hasLoading, hasError}: CatalogProps) => {
     const [filteredProducts, setFilteredProducts] = useState(initialState);
     const [settingsPagination, setSettingsPagination] = useState(settingPaginationState);
     const dispatch = useDispatch();
     const state = useTypedSelector(state => state);
-    const products = state.productReducer.products;
 
     const typesProduct = state.typesProductReducer.selectedTypesProduct;
     const prices = state.filterReducer.counter;
     const manufacturers = state.filterReducer.manufacturers;
     const sort = state.sortReducer.sort;
-
-    const {getAllProducts, hasError, hasLoading} = useProductService();
-    //LOADING
-    useEffect(() => {
-        if (products.length === 0) getAllProducts().then(data => dispatch(setProductsAction(data)));
-    }, []);
-    //INIT
-    useEffect(() => {
-        const types = getAllTypesProduct(products);
-        dispatch(setTypesProductAction(types));
-        setFilteredProducts(products);
-    }, [products]);
 
     useEffect(() => {
         let filteredMassive = products.filter(item => (manufacturers.length === 0 || manufacturers.includes(item.manufacturer)) &&
@@ -100,33 +84,35 @@ export const CatalogContent = () => {
                 filteredMassive = sortingMassiveByField(filteredMassive, PRICE_OPTION);
                 break;
         }
+
         setFilteredProducts(filteredMassive);
 
-    }, [typesProduct, prices, manufacturers, sort])
+    }, [typesProduct, prices, manufacturers, sort, products]);
 
     return (
         hasError ? <Error/> :
             hasLoading ? <Loading/> :
-                <>
-                    <CatalogList class={styles.catalog}
-                                 start={settingsPagination.start}
-                                 end={settingsPagination.end > filteredProducts.length ? filteredProducts.length : settingsPagination.end}
-                                 products={filteredProducts}/>
-                    {<Pagination
-                        onPageChange={(page: number) => {
-                            setSettingsPagination((prevState) => {
-                                    return {
-                                        start: page * COUNT_VIEW_PRODUCT,
-                                        end: page * COUNT_VIEW_PRODUCT + COUNT_VIEW_PRODUCT,
-                                    }
-                                }
-                            )
+                filteredProducts.length !== 0 ?
+                    <>
+                        <CatalogList class={styles.catalog}
+                                     start={settingsPagination.start}
+                                     end={settingsPagination.end > filteredProducts.length ? filteredProducts.length : settingsPagination.end}
+                                     products={filteredProducts}/>
 
-                        }
-                        }
-                        class={styles.pages}
-                        count={filteredProducts?.length}
-                        countViewProduct={COUNT_VIEW_PRODUCT}/>}
-                </>
-    );
+                        <Pagination
+                            onPageChange={(page: number) => {
+                                setSettingsPagination((prevState) => {
+                                        return {
+                                            start: page * COUNT_VIEW_PRODUCT,
+                                            end: page * COUNT_VIEW_PRODUCT + COUNT_VIEW_PRODUCT,
+                                        }
+                                    }
+                                )
+
+                            }
+                            }
+                            class={styles.pages}
+                            count={filteredProducts?.length}/>
+                    </> : <h3 className={styles.subtitle}>Ничего не найдено;( <br/> Попробуйте другую конфигурацию</h3>
+    )
 };

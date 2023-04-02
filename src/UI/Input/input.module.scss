@@ -1,5 +1,5 @@
 .input {
-  &[type='text'] {
+  &[type='text'], &[type='password'] {
     padding: 20px;
     border-radius: 36px;
     width: 100%;

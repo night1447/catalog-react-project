@@ -10,6 +10,7 @@ type InputProps = {
     min?: number,
     max?: number,
     checked?: boolean,
+    autocomplete?: string,
     onInput?: (e: ChangeEvent<HTMLInputElement>) => void,
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
     onBlur?: (e: ChangeEvent<HTMLInputElement>) => void,
@@ -26,6 +27,8 @@ export const Input = (props: InputProps) => {
                onInput={props.onInput}
                onChange={props.onChange}
                placeholder={props.placeholder}
-               value={props.value || ''}/>
+               value={props.value || ''}
+               autoComplete={props.autocomplete || ''}
+        />
     );
 };

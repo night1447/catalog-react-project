@@ -4,7 +4,7 @@ import {IState} from "./typesProductTypes";
 
 const initialState: IState = {
     selectedTypesProduct: [],
-    typesProduct: [],
+    typesProduct: ['Уход за телом','Уход за ногами'],
 }
 
 export const typesProductSlice = createSlice({

@@ -1,11 +1,10 @@
-// @flow
 import * as React from 'react';
 import styles from "../header.module.scss";
-import addressImage from "../../../assets/address.svg";
-import {address, EMAIL, SCHEDULE, TELEPHONE} from "../Top/constants";
-import emailImage from "../../../assets/email.svg";
-import telImage from "../../../assets/tel-black.svg";
-import telWhiteImage from "../../../assets/tel-white.svg";
+import addressImage from "../../../assets/decor/helpers/address.svg";
+import {address, EMAIL, SCHEDULE, TELEPHONE} from "../../../constants/info";
+import emailImage from "../../../assets/decor/helpers/email.svg";
+import telImage from "../../../assets/decor/helpers/tel-black.svg";
+import telWhiteImage from "../../../assets/decor/helpers/tel-white.svg";
 import {Button} from "../../../UI/Button/Button";
 
 interface contactsProps {
@@ -38,10 +37,10 @@ export const Contacts = (props: contactsProps) => {
             </li>
             <li className={`${styles.block} ${styles['block-mobile']} ${styles['block_flex']}`}>
                 <Button isRounded={true}
-                        class={styles['tel-button']}
+                        class={`${styles['tel-button']}`}
                         imageClass={styles['tel-button_image']}
                         urlImage={telWhiteImage}/>
-                <a href={`#`} className={`${styles.href} ${styles.href_underline} ${styles.href_little}`}>Заказать
+                <a href={`/`} className={`${styles.href} ${styles.href_underline} ${styles.href_little}`}>Заказать
                     звонок</a>
             </li>
         </ul>

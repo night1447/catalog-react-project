@@ -4,24 +4,20 @@
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
-
-.item {
-  margin-bottom: 10px;
-  min-height: 17px;
-  &:not(:last-child) {
-    position: relative;
-    margin-right: 20px;
-
-    &::after {
-      position: absolute;
-      content: '';
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 100%;
-      opacity: 0.3;
-      border: 1px dashed var(--blue);
-    }
+.item{
+  font-weight: 300;
+  &:not(:last-child){
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px dashed rgba(63, 78, 101, 0.5);
   }
+  transition: color 0.5s;
+  &:hover{
+    color: var(--accent);
+  }
+}
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.5;
 }

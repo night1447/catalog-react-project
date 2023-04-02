@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {TextSearch} from "../../TextSearch/TextSearch";
 import styles from "./filter-block.module.scss";
-import arrowImage from "../../../assets/select-icon.svg"
+import arrowImage from "../../../assets/decor/helpers/select-icon.svg"
 import {FilterCheckbox} from "../FilterCheckbox/FilterCheckbox";
 
 type FilterBlockProps = {
@@ -13,7 +13,6 @@ type FilterBlockProps = {
     onChangeState: (value: any) => void,
 
 };
-const checkboxesInitialState: string[] = [];
 const getList = (list: any[], countPerView: number, getItem: (item: any) => any) => {
     const result = [];
     const length = countPerView > list.length ? list.length : countPerView;

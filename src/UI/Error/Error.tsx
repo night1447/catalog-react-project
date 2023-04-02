@@ -1,5 +1,5 @@
 import {FC} from "react";
-import errorGif from "../../assets/error.gif"
+import errorGif from "../../assets/handlers/error.gif"
 import {Link} from "react-router-dom";
 
 interface ErrorProps {

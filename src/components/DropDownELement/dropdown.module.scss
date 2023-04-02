@@ -1,0 +1,32 @@
+.dropdown {
+  position: relative;
+}
+
+.block {
+  transition: height 1s, overflow 0.5s;
+  overflow: hidden;
+
+  &.hidden {
+    height: 0;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: -12px;
+  top: 3.5px;
+  width: 7px;
+  height: 7px;
+  transition: transform 0.5s;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.button {
+  position: relative;
+}

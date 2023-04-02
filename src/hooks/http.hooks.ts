@@ -2,7 +2,7 @@ import {useCallback, useState} from "react";
 import axios from "axios";
 
 export const useHttp = () => {
-    const [hasLoading, setHasLoading] = useState(true);
+    const [hasLoading, setHasLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
 
     const request = useCallback(async (url: string, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
