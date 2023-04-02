@@ -20,7 +20,7 @@ export const HeaderBottom = () => {
                 <div className={`${styles.wrapper || ''} ${styles.flex}`}>
                     <BurgerMenu/>
                     <Logo isWhite={false} class={styles.logo}/>
-                    <Link to={routes.CATALOG}> <Button isRounded={false}
+                    <Link to={routes.CATALOG} className={styles['mobile-hidden']}> <Button isRounded={false}
                                                        title={"Каталог"}
                                                        class={`${styles.catalog} ${styles['mobile-hidden']}`}
                                                        urlImage={catalogImage}

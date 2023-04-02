@@ -2,7 +2,7 @@ export const routes = {
     CATALOG: '/catalog',
     PRODUCT: '/catalog/:id',
     ADMIN: '/admin',
-    MAIN: '/',
+    MAIN:'/',
     TRASH: '/trash',
-    ERROR: '*',
+    ERROR:'*',
 }

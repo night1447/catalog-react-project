@@ -5,6 +5,8 @@ import {Contacts} from "../Contacts/Contacts";
 import {Button} from "../../../UI/Button/Button";
 import searchImage from '../../../assets/decor/helpers/search-black.svg'
 import catalogImage from '../../../assets/decor/helpers/catalog-black.svg'
+import { routes } from '../../../routes/routes';
+import { Link } from 'react-router-dom';
 
 export const HeaderTop = () => {
     return (
@@ -13,8 +15,8 @@ export const HeaderTop = () => {
                 <div className={`${styles.grid || ''} ${styles.flex}`}>
                     <Contacts class={styles['mobile-hidden']}/>
                     <Navigation/>
-                    <Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Каталог'}
-                            urlImage={catalogImage}/>
+                    <Link to={routes.CATALOG} className={styles.button}><Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Каталог'}
+                            urlImage={catalogImage}/></Link>
                     <Button class={styles.button} imageClass={styles.button_image} isRounded={false} title={'Поиск'}
                             urlImage={searchImage}/>
                 </div>
