@@ -2,7 +2,7 @@ import {ICatalogProduct, TypeSize} from "../../../models/ICatalogProduct";
 import {AdminField, CustomAdminField} from "../AdminField/AdminField";
 import {Button} from "../../../UI/Button/Button";
 import styles from './admin.module.scss'
-import {FormEvent, useCallback, useState} from "react";
+import React, {FormEvent, useCallback, useState} from "react";
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {
@@ -12,6 +12,8 @@ import {
 } from "../../../store/reducers/Products/ProductAction";
 import {AdminProduct} from "../AdminProduct/AdminProduct";
 import {setTypesProductAction} from "../../../store/reducers/Filters/TypesProduct/typesProductAction";
+import {Link} from "react-router-dom";
+import {routes} from "../../../routes/routes";
 
 
 const obj: ICatalogProduct = {
@@ -136,6 +138,7 @@ export const AdminActions = () => {
         return (
             <div className={styles.admin}>
                 <h1 className={styles.title}>Админка</h1>
+                <Link to={routes.CATALOG} className={styles.subtitle}>В Каталог</Link>
 
                 {isAction !== "add" && isAction !== 'edit' && isAction !== 'editTypes' ?
                     products.length === 0 ?

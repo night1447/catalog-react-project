@@ -4,6 +4,8 @@ import {Button} from "../../UI/Button/Button";
 import {Label} from "../../UI/Label/Label";
 import {Input} from "../../UI/Input/Input";
 import {AdminActions} from "./AdminActions/AdminActions";
+import {routes} from "../../routes/routes";
+import {Link} from "react-router-dom";
 
 export const AdminComponent = () => {
     const [userName, setUserName] = useState('');
