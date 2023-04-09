@@ -24,7 +24,7 @@ export const CatalogList = ({products, class: className, end, start}: CatalogLis
         return list;
     }
     return (
-        <ul className={`${styles.list} ${className} ${layout === 'row' ? styles.list_row : ''}`}>
+        <ul className={`${styles.list} ${className || ''} ${layout === 'row' ? styles.list_row : ''}`}>
             {displayList().map(item => item)}
         </ul>
     );

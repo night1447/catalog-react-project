@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {rootReducer} from "./reducers";
+import {rootReducer, RootReducerType} from "./reducers";
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {localStorageMiddleware} from "./middleware/localStorageMiddleware";
@@ -10,8 +10,9 @@ const persistConfig = {
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
+const store = (initialState?: RootReducerType) => configureStore({
     reducer: persistedReducer,
+    preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
@@ -19,5 +20,5 @@ const store = configureStore({
             },
         }).concat(localStorageMiddleware),
 })
-export const persistor = persistStore(store);
+export const persistor = persistStore(store());
 export default store;

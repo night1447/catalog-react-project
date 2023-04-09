@@ -17,45 +17,41 @@ export interface TrashItemType extends AddedTrashProduct {
 
 const initialState: TrashItemType[] = [];
 export const TrashSection = () => {
-        const trash = useTypedSelector(state => state.trashReducer);
-        const productsState = useTypedSelector(state => state.productReducer.products);
-        const {getProductById} = useProductService();
-        const [trashProducts, setTrashProducts] = useState(initialState);
-        useEffect(() => {
-                if (trash.products.length !== 0) {
-                    if (productsState.length === 0) {
-                        trash.products.map(trashProduct => getProductById(trashProduct.product).then(product => {
-                            setTrashProducts(prevState => [...prevState, {
-                                state: true,
-                                count: trashProduct.count,
-                                product
-                            }
-                            ])
-                        }))
-                    } else {
-                        for (let i = 0; i < productsState.length; i++) {
-                            let item = productsState[i];
-                            for (let j = 0; j < trash.products.length; j++) {
-                                let trashItem = trash.products[j];
-                                if (trashItem.product === item.id) {
-
+    const trash = useTypedSelector(state => state.trashReducer);
+    const productsState = useTypedSelector(state => state.productReducer.products);
+    const {getProductsByIds, getProductById} = useProductService();
+    const [trashProducts, setTrashProducts] = useState(initialState);
+    useEffect(() => {
+            if (trash.products.length !== 0) {
+                if (productsState.length === 0) {
+                    getProductsByIds(trash.products.map(item => item.product)).then((data) => {
+                        setTrashProducts(data.map((product, index) => ({
+                            state: true,
+                            count: trash.products[index].count,
+                            product
+                        })));
+                    })
+                } else {
+                    for (let i = 0; i < productsState.length; i++) {
+                        let item = productsState[i];
+                        for (let j = 0; j < trash.products.length; j++) {
+                            let trashItem = trash.products[j];
+                            if (trashItem.product === item.id) {
+                                setTrashProducts(prevState => [...prevState, {
+                                    state: true,
+                                    count: trashItem.count,
+                                    product: item
+                                }])
+                            } else {
+                                getProductById(trashItem.product).then((item) =>
                                     setTrashProducts(prevState => [...prevState, {
                                         state: true,
                                         count: trashItem.count,
                                         product: item
-                                    }
-                                    ])
-                                } else {
-                                    getProductById(trashItem.product).then((item) =>
-                                        setTrashProducts(prevState => [...prevState, {
-                                            state: true,
-                                            count: trashItem.count,
-                                            product: item
-                                        }
-                                        ]))
-                                }
+                                    }]))
                             }
                         }
+                    }
                     }
                 }
             }
@@ -74,8 +70,7 @@ export const TrashSection = () => {
                     setTrashProducts(prevState => prevState.filter(item => ids.includes(item.product.id)))
                 }
             },
-            [trash.products, trashProducts.length]
-        )
+            [trash.products, trashProducts.length])
         const [showMessage, setShowMessage] = useState(false);
         const dispatch = useDispatch();
         const submitHandler = () => {
@@ -90,7 +85,8 @@ export const TrashSection = () => {
                     <div className={styles.trash}>
                         <h1 className={styles.title}>Корзина</h1>
                         <ul className={styles.list}>
-                            {trashProducts.map(product => <TrashItem product={product} key={product.product.id}/>)}
+                            {trashProducts.map(product => <TrashItem product={product} data-testid={'trash-item'}
+                                                                     key={product.product.id}/>)}
                         </ul>
                         <div className={styles.results}>
                             <Button
@@ -99,7 +95,8 @@ export const TrashSection = () => {
                                 class={styles.submit}
                                 title={'Оформить заказ'}
                             />
-                            <div className={styles.total}>{trash.totalPrice} {CURRENCY}</div>
+                            <div className={styles.total}
+                                 data-testid={'total-trash'}>{trash.totalPrice} {CURRENCY}</div>
                         </div>
                     </div>
                     :

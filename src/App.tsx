@@ -7,7 +7,7 @@ import {RouterProvider} from "react-router-dom";
 import router from "./routes/index";
 
 const App = () => {
-    return <Provider store={store}>
+    return <Provider store={store()}>
         <PersistGate persistor={persistor}>
             <RouterProvider router={router}/>
         </PersistGate>

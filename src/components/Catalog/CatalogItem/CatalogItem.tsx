@@ -17,7 +17,7 @@ interface CatalogItemProps {
 const checkValue = (value: number | string) => value ? value : 'Нет данных';
 export const CatalogItem = (props: CatalogItemProps) => {
     return (
-        <li className={`${props.class || ""} ${styles.product} ${props.isRow && styles.product_row}`}>
+        <li className={`${props.class || ""} ${styles.product} ${props.isRow && styles.product_row}`} data-testid={'catalog-item'}>
             <div className={styles.image}
                  style={{backgroundImage: `url(${props.product.productImageUrl})`}}>
             </div>

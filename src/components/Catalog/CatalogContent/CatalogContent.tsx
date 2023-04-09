@@ -23,7 +23,7 @@ const findOccurrencesArrays = (firstArray: string[], secondArray: string[]): boo
     }
     return false;
 };
-const sortingMassiveByField = (array: any[], field: string, decrease?: boolean) => {
+export const sortingMassiveByField = (array: any[], field: string, decrease?: boolean) => {
     if (decrease) {
         return new Array(...array).sort((a, b) => {
             if (a[field] < b[field]) {

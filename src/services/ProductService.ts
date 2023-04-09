@@ -17,5 +17,9 @@ export const useProductService = () => {
         const result = await request(process.env.PUBLIC_URL + '/data.json');
         return transformProduct(result[result.findIndex((item: ICatalogProduct) => item.id === id)]);
     }, [request])
-    return {getAllProducts, getProductById, hasError, hasLoading, clearError}
+    const getProductsByIds = useCallback(async (ids: number[]) => {
+        const result: ICatalogProduct[] = await request(process.env.PUBLIC_URL + '/data.json');
+        return ids.map(id => transformProduct(result[result.findIndex(item => item.id === id)]))
+    }, [request])
+    return {getAllProducts, getProductById, getProductsByIds, hasError, hasLoading, clearError}
 }
