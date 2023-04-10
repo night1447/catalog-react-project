@@ -10,7 +10,7 @@ type MessageProps = {
 };
 export const Message = (props: MessageProps) => {
     return (
-        props.isShow ? <Portal idDocument={'message'}>
+        props.isShow ? <Portal idDocument={'message'} data-testid={'message'}>
             <div
                 className={`${styles.message} ${props.type === 'error' ? styles.error : props.type === 'inform' ? styles.info : styles.success}`}>
                 <p className={styles.text}>

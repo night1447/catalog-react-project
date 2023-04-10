@@ -10,17 +10,25 @@ import {resetProductsAction} from "../../store/reducers/Trash/TrashActions";
 import {useProductService} from "../../services/ProductService";
 import {AddedTrashProduct} from "../../store/reducers/Trash/TrashTypes";
 import {CURRENCY} from "../../constants/info";
+import {Error} from "../../UI/Error/Error";
+import {Loading} from "../../UI/Loading/Loading";
 
 export interface TrashItemType extends AddedTrashProduct {
     state: boolean,
 }
 
 const initialState: TrashItemType[] = [];
-export const TrashSection = () => {
+
+interface TrashSectionProps {
+    initialState?: TrashItemType[]
+}
+
+export const TrashSection = ({initialState: initValues}: TrashSectionProps) => {
     const trash = useTypedSelector(state => state.trashReducer);
     const productsState = useTypedSelector(state => state.productReducer.products);
-    const {getProductsByIds, getProductById} = useProductService();
-    const [trashProducts, setTrashProducts] = useState(initialState);
+    const {getProductsByIds, getProductById, hasError, hasLoading} = useProductService();
+    const [showMessage, setShowMessage] = useState(false);
+    const [trashProducts, setTrashProducts] = useState(initValues || initialState);
     useEffect(() => {
             if (trash.products.length !== 0) {
                 if (productsState.length === 0) {
@@ -52,40 +60,42 @@ export const TrashSection = () => {
                             }
                         }
                     }
-                    }
                 }
             }
-            , []);
-        useEffect(() => {
-                if (trash.products.length === trashProducts.length) {
-                    trash.products.map(itemInStorage =>
-                        setTrashProducts((prevState) => prevState.map(item => {
-                            if (item.product.id === itemInStorage.product) {
-                                return {...item, count: itemInStorage.count, product: item.product}
-                            }
-                            return item;
-                        })))
-                } else if (trash.products.length < trashProducts.length) {
-                    const ids = trash.products.map(item => item.product);
-                    setTrashProducts(prevState => prevState.filter(item => ids.includes(item.product.id)))
-                }
-            },
-            [trash.products, trashProducts.length])
-        const [showMessage, setShowMessage] = useState(false);
-        const dispatch = useDispatch();
-        const submitHandler = () => {
-            setShowMessage(true);
-            setTimeout(() => setShowMessage(false), 3000);
-            dispatch(resetProductsAction());
-        };
+        }
+        , []);
+    useEffect(() => {
+            if (trash.products.length === trashProducts.length) {
+                trash.products.map(itemInStorage =>
+                    setTrashProducts((prevState) => prevState.map(item => {
+                        if (item.product.id === itemInStorage.product) {
+                            return {...item, count: itemInStorage.count, product: item.product}
+                        }
+                        return item;
+                    })))
+            } else if (trash.products.length < trashProducts.length) {
+                const ids = trash.products.map(item => item.product);
+                setTrashProducts(prevState => prevState.filter(item => ids.includes(item.product.id)))
+            }
+        },
+        [trash.products, trashProducts.length])
+    const dispatch = useDispatch();
+    const submitHandler = () => {
+        setShowMessage(true);
+        setTimeout(() => setShowMessage(false), 3000);
+        dispatch(resetProductsAction());
+    };
 
-        return (
-            <>
-                {trash.products.length !== 0 ?
+    return (
+        <>{
+            hasError ? <Error/> : hasLoading ? <Loading/> :
+
+                trash.products.length !== 0 ?
                     <div className={styles.trash}>
                         <h1 className={styles.title}>Корзина</h1>
                         <ul className={styles.list}>
-                            {trashProducts.map(product => <TrashItem product={product} data-testid={'trash-item'}
+                            {trashProducts.map(product => <TrashItem product={product}
+                                                                     data-testid={'trash-item'}
                                                                      key={product.product.id}/>)}
                         </ul>
                         <div className={styles.results}>
@@ -110,8 +120,8 @@ export const TrashSection = () => {
                             message={'Заказ оформлен, спасибо!'}
                             type={'success'}/>
                     </div>
-                }
-            </>
-        );
+        }
+        </>
+    );
     }
 ;
