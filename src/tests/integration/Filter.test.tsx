@@ -1,13 +1,13 @@
-import {filterStateType} from "../store/reducers/Filters/Filter/FilterType";
+import {filterStateType} from "../../store/reducers/Filters/Filter/FilterType";
 import * as reduxHooks from "react-redux";
 import {fireEvent, render as rtlRender, screen} from "@testing-library/react";
 import {BrowserRouter} from "react-router-dom";
 import React from "react";
-import {TypesProduct} from "../components/TypesProduct/TypesProduct";
-import {typesProductSlice} from "../store/reducers/Filters/TypesProduct/typesProductSlice";
-import {FilterSlice} from "../store/reducers/Filters/Filter/FilterSlice";
-import Filter from "../components/Filter/Filter";
-import {ICatalogProduct} from "../models/ICatalogProduct";
+import {TypesProduct} from "../../components/TypesProduct/TypesProduct";
+import {typesProductSlice} from "../../store/reducers/Filters/TypesProduct/typesProductSlice";
+import {FilterSlice} from "../../store/reducers/Filters/Filter/FilterSlice";
+import Filter from "../../components/Filter/Filter";
+import {ICatalogProduct} from "../../models/ICatalogProduct";
 
 jest.mock('react-redux');
 const jestUseSelector = jest.spyOn(reduxHooks, 'useSelector');

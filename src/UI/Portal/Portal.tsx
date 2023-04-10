@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import {createPortal} from "react-dom";
 
-type Props = {
+type PortalProps = {
     idDocument: string,
-    children: React.ReactNode
 };
-export const Portal = (props: Props) => {
+export const Portal: FC<PropsWithChildren<PortalProps>> = (props) => {
     return (
         createPortal(props.children, document.getElementById(props.idDocument) as Element)
     );

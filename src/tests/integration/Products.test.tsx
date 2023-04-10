@@ -1,5 +1,5 @@
-import {ICatalogProduct} from "../models/ICatalogProduct";
-import {CatalogList} from "../components/Catalog/CatalogList/CatalogList";
+import {ICatalogProduct} from "../../models/ICatalogProduct";
+import {CatalogList} from "../../components/Catalog/CatalogList/CatalogList";
 import {render as rtlRender, screen} from "@testing-library/react";
 import * as reduxHooks from 'react-redux'
 import {BrowserRouter} from "react-router-dom";

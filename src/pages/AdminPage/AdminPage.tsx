@@ -1,5 +1,5 @@
 import React from 'react';
-import {Main} from "../../components/Main/Main";
+import {Main} from "../../components/Layout/Main/Main";
 import Container from "../../UI/Container/Container";
 import {AdminComponent} from "../../components/AdminComponent/AdminComponent";
 

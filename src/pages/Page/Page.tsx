@@ -1,18 +1,15 @@
-import React from 'react';
-import {Main} from "../../components/Main/Main";
-import {Header} from "../../components/Header/Header";
-import {Footer} from "../../components/Footer/Footer";
+import React, {FC, PropsWithChildren} from 'react';
+import {Main} from "../../components/Layout/Main/Main";
+import {Header} from "../../components/Layout/Header/Header";
+import {Footer} from "../../components/Layout/Footer/Footer";
 
-interface PageProps {
-    children: React.ReactNode,
-}
 
-export const Page = (props: PageProps) => {
+export const Page: FC<PropsWithChildren> = ({children}) => {
     return (
         <>
             <Header/>
             <Main>
-                {props.children}
+                {children}
             </Main>
             <Footer/>
         </>

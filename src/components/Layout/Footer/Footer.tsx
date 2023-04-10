@@ -1,16 +1,16 @@
 import styles from "./footer.module.scss";
-import Container from "../../UI/Container/Container";
-import whatsUpImage from '../../assets/decor/soc-links/whatsup.svg';
-import telegramImage from '../../assets/decor/soc-links/telegram.svg';
-import {SrOnly} from "../../UI/SrOnly/SrOnly";
-import {PriceListButton} from "../../UI/PriceListButton/PriceListButton";
-import {EmailSender} from "../EmailSender/EmailSender";
-import {Logo} from "../../UI/Logo/Logo";
-import {CORRECT_TELEPHONE, EMAIL, SCHEDULE, TELEPHONE} from "../../constants/info";
-import {MENU} from "../../constants/navigation";
-import visaImage from '../../assets/decor/payments/visa.svg'
-import masterCardImage from '../../assets/decor/payments/mastercard.svg'
-import { routes } from "../../routes/routes";
+import Container from "../../../UI/Container/Container";
+import whatsUpImage from '../../../assets/decor/soc-links/whatsup.svg';
+import telegramImage from '../../../assets/decor/soc-links/telegram.svg';
+import {SrOnly} from "../../../UI/SrOnly/SrOnly";
+import {PriceListButton} from "../../../UI/PriceListButton/PriceListButton";
+import {EmailSender} from "../../EmailSender/EmailSender";
+import {Logo} from "../../../UI/Logo/Logo";
+import {CORRECT_TELEPHONE, EMAIL, SCHEDULE, TELEPHONE} from "../../../constants/info";
+import {MENU} from "../../../constants/navigation";
+import visaImage from '../../../assets/decor/payments/visa.svg'
+import masterCardImage from '../../../assets/decor/payments/mastercard.svg'
+import { routes } from "../../../routes/routes";
 import { Link } from "react-router-dom";
 
 interface ISocNetwork {

@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import styles from './container.module.css';
 
-interface IProps {
-    children: React.ReactNode,
-}
 
-const Container = (props: IProps) => {
+const Container: FC<PropsWithChildren> = ({children}) => {
     return (
         <div className={styles.container}>
-            {props.children}
+            {children}
         </div>)
 };
 

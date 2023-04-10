@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styles from "../header.module.scss";
-import addressImage from "../../../assets/decor/helpers/address.svg";
-import {address, EMAIL, SCHEDULE, TELEPHONE} from "../../../constants/info";
-import emailImage from "../../../assets/decor/helpers/email.svg";
-import telImage from "../../../assets/decor/helpers/tel-black.svg";
-import telWhiteImage from "../../../assets/decor/helpers/tel-white.svg";
-import {Button} from "../../../UI/Button/Button";
+import addressImage from "../../../../assets/decor/helpers/address.svg";
+import {address, EMAIL, SCHEDULE, TELEPHONE} from "../../../../constants/info";
+import emailImage from "../../../../assets/decor/helpers/email.svg";
+import telImage from "../../../../assets/decor/helpers/tel-black.svg";
+import telWhiteImage from "../../../../assets/decor/helpers/tel-white.svg";
+import {Button} from "../../../../UI/Button/Button";
 
 interface contactsProps {
     class?: string,

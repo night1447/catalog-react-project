@@ -1,13 +1,12 @@
-import React from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import styles from './modal.module.scss'
 import {Portal} from "../Portal/Portal";
 
-type Props = {
-    children: React.ReactNode,
+type ModalProps = {
     showModal: boolean,
     onClose: () => void,
 };
-export const Modal = (props: Props) => {
+export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
 
     return (
         props.showModal ?

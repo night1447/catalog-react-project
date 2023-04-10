@@ -1,12 +1,9 @@
-import React from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import {Breadcrumbs} from "../../components/Breadcrumbs/Breadcrumbs";
 import Container from "../../UI/Container/Container";
 import {Page} from "../Page/Page";
 
-type Props = {
-    children: React.ReactNode
-};
-export const BreadcrumbsPage = (props: Props) => {
+export const BreadcrumbsPage: FC<PropsWithChildren> = ({children}) => {
     return (
         <Page>
             <Container>
@@ -14,7 +11,7 @@ export const BreadcrumbsPage = (props: Props) => {
             </Container>
             <section>
                 <Container>
-                    {props.children}
+                    {children}
                 </Container>
             </section>
         </Page>

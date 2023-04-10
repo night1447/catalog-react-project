@@ -1,12 +1,12 @@
 import * as reduxHooks from "react-redux";
 import {fireEvent, render as rtlRender, screen} from "@testing-library/react";
 import React from "react";
-import {TrashItemType, TrashSection} from "../components/TrashSection/TrashSection";
+import {TrashItemType, TrashSection} from "../../components/TrashSection/TrashSection";
 import {BrowserRouter} from "react-router-dom";
-import {TrashProduct} from "../store/reducers/Trash/TrashTypes";
-import * as productsHook from "../services/ProductService";
-import {ICatalogProduct} from "../models/ICatalogProduct";
-import {TrashSlice} from "../store/reducers/Trash/TrashSlice";
+import {TrashProduct} from "../../store/reducers/Trash/TrashTypes";
+import * as productsHook from "../../services/ProductService";
+import {ICatalogProduct} from "../../models/ICatalogProduct";
+import {TrashSlice} from "../../store/reducers/Trash/TrashSlice";
 import {expect} from "@jest/globals";
 
 jest.mock('react-redux');

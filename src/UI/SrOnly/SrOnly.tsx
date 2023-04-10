@@ -1,13 +1,12 @@
 import * as React from 'react';
+import {FC, PropsWithChildren} from 'react';
 import styles from "./sr-only.module.css"
 
-type SrOnlyProps = {
-    children: React.ReactNode,
-};
-export const SrOnly = (props: SrOnlyProps) => {
+
+export const SrOnly: FC<PropsWithChildren> = ({children}) => {
     return (
         <span className={styles.srOnly}>
-            {props.children}
+            {children}
         </span>
     );
 };

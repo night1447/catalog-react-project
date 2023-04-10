@@ -2,11 +2,8 @@ import styles from './layout.module.scss'
 import {LayoutChoice} from "./LayoutChoice/LayoutChoice";
 import gridImage from '../../assets/decor/helpers/grid-button.svg'
 import rowImage from '../../assets/decor/helpers/row-button.svg'
-import {LayoutPayload} from "../../store/reducers/Filters/Layout/LayoutTypes";
+import {IChoises, LayoutProps} from "./types";
 
-interface IChoises extends LayoutPayload {
-    urlImage: string,
-}
 
 const choices: IChoises[] = [{
     layout: 'row',
@@ -15,10 +12,6 @@ const choices: IChoises[] = [{
     layout: 'grid',
     urlImage: gridImage,
 }]
-
-interface LayoutProps {
-    class?: string,
-}
 
 export const LayoutChoices = (props: LayoutProps) => {
     return (

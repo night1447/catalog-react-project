@@ -2,11 +2,11 @@ import * as reduxHooks from "react-redux";
 import {fireEvent, render as rtlRender, screen} from "@testing-library/react";
 import {BrowserRouter} from "react-router-dom";
 import React from "react";
-import {Sort} from "../components/Sort/Sort";
-import {SortSlice} from "../store/reducers/Filters/Sort/SortSlice";
-import {DECREASE_OPTION, INCREASE_OPTION, NAME_OPTION, PRICE_OPTION} from "../components/Sort/constants";
-import {ICatalogProduct} from "../models/ICatalogProduct";
-import {CatalogContent, sortingMassiveByField} from "../components/Catalog/CatalogContent/CatalogContent";
+import {Sort} from "../../components/Sort/Sort";
+import {SortSlice} from "../../store/reducers/Filters/Sort/SortSlice";
+import {DECREASE_OPTION, INCREASE_OPTION, NAME_OPTION, PRICE_OPTION} from "../../components/Sort/constants";
+import {ICatalogProduct} from "../../models/ICatalogProduct";
+import {CatalogContent, sortingMassiveByField} from "../../components/Catalog/CatalogContent/CatalogContent";
 
 jest.mock('react-redux');
 const jestUseSelector = jest.spyOn(reduxHooks, 'useSelector');

@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import {Label} from "../../UI/Label/Label";
-import styles from "../Footer/footer.module.scss";
+import styles from "../Layout/Footer/footer.module.scss";
 import {Input} from "../../UI/Input/Input";
 import {Button} from "../../UI/Button/Button";
 import arrowImage from "../../assets/decor/arrows/arrow-right-white.svg";
 
-type Props = {
+type EmailSenderProps = {
     htmlFor: string,
 };
-export const EmailSender = (props: Props) => {
+export const EmailSender = (props: EmailSenderProps) => {
     const [value, setValue] = useState('');
     return (
         <Label htmlFor={props.htmlFor} class={styles.label}>

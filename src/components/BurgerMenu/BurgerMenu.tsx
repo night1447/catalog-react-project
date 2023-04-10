@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./burger-menu.module.scss"
 import {SrOnly} from "../../UI/SrOnly/SrOnly";
-import {Contacts} from "../Header/Contacts/Contacts";
+import {Contacts} from "../Layout/Header/Contacts/Contacts";
 import {Navigation} from "../Navigation/Navigation";
 import {PriceListButton} from "../../UI/PriceListButton/PriceListButton";
 
